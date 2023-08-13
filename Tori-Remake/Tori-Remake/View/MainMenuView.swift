@@ -19,15 +19,15 @@ struct MainMenuView: View {
                 {
                     Spacer()
                     
-                    AdView()
+                    AdCardView()
                         .padding(1)
-                    AdView()
+                    AdCardView()
                         .padding(1)
-                    AdView()
+                    AdCardView()
                         .padding(1)
-                    AdView()
+                    AdCardView()
                         .padding(1)
-                    AdView()
+                    AdCardView()
                         .padding(1)
                 }
                 
@@ -44,11 +44,11 @@ struct MainMenuView: View {
                         }
                         
                     HStack {
-                        Image(systemName: "slider.horizontal.3")
+                        Image(systemName: "list.bullet.indent")
                             .foregroundColor(.gray)
                             .padding(.leading, 2)
                         
-                        TextField("Search for a Item", text: $searchText)
+                        TextField("Search for an Item", text: $searchText)
                             .padding(.vertical, 12)
                             .padding(.leading, 8)
                             .background(
@@ -67,6 +67,7 @@ struct MainMenuView: View {
                     if showMenu {
                             CategoriesView()
                             .padding(2)
+                            .animation(.spring().delay(2), value: showMenu)
                         }
                 }//VStack
             }//ZStack

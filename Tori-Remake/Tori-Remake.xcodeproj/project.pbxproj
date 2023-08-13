@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		B95620112A88CC39003C14C0 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620102A88CC39003C14C0 /* CategoriesView.swift */; };
 		B95620132A88D21B003C14C0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620122A88D21B003C14C0 /* Constants.swift */; };
-		B95620152A88D246003C14C0 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620142A88D246003C14C0 /* AdView.swift */; };
+		B95620152A88D246003C14C0 /* AdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620142A88D246003C14C0 /* AdCardView.swift */; };
+		B95620172A88ECEF003C14C0 /* AdInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620162A88ECEF003C14C0 /* AdInfoView.swift */; };
 		B9E7AE1D2A87C7D1006F323E /* Tori_RemakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7AE1C2A87C7D1006F323E /* Tori_RemakeApp.swift */; };
 		B9E7AE212A87C7D2006F323E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E7AE202A87C7D2006F323E /* Assets.xcassets */; };
 		B9E7AE242A87C7D2006F323E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E7AE232A87C7D2006F323E /* Preview Assets.xcassets */; };
@@ -22,7 +23,8 @@
 /* Begin PBXFileReference section */
 		B95620102A88CC39003C14C0 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		B95620122A88D21B003C14C0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B95620142A88D246003C14C0 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
+		B95620142A88D246003C14C0 /* AdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCardView.swift; sourceTree = "<group>"; };
+		B95620162A88ECEF003C14C0 /* AdInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdInfoView.swift; sourceTree = "<group>"; };
 		B9E7AE192A87C7D1006F323E /* Tori-Remake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tori-Remake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E7AE1C2A87C7D1006F323E /* Tori_RemakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tori_RemakeApp.swift; sourceTree = "<group>"; };
 		B9E7AE202A87C7D2006F323E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,7 +99,8 @@
 			children = (
 				B9E7AE382A8895A6006F323E /* MainMenuView.swift */,
 				B95620102A88CC39003C14C0 /* CategoriesView.swift */,
-				B95620142A88D246003C14C0 /* AdView.swift */,
+				B95620142A88D246003C14C0 /* AdCardView.swift */,
+				B95620162A88ECEF003C14C0 /* AdInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,9 +201,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B95620132A88D21B003C14C0 /* Constants.swift in Sources */,
+				B95620172A88ECEF003C14C0 /* AdInfoView.swift in Sources */,
 				B9E7AE392A8895A6006F323E /* MainMenuView.swift in Sources */,
 				B95620112A88CC39003C14C0 /* CategoriesView.swift in Sources */,
-				B95620152A88D246003C14C0 /* AdView.swift in Sources */,
+				B95620152A88D246003C14C0 /* AdCardView.swift in Sources */,
 				B9E7AE292A87C7D2006F323E /* Tori_Remake.xcdatamodeld in Sources */,
 				B9E7AE1D2A87C7D1006F323E /* Tori_RemakeApp.swift in Sources */,
 			);
