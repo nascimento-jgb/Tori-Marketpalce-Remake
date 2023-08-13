@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B95620112A88CC39003C14C0 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620102A88CC39003C14C0 /* CategoriesView.swift */; };
+		B95620132A88D21B003C14C0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620122A88D21B003C14C0 /* Constants.swift */; };
+		B95620152A88D246003C14C0 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620142A88D246003C14C0 /* AdView.swift */; };
+		B9E7AE1D2A87C7D1006F323E /* Tori_RemakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7AE1C2A87C7D1006F323E /* Tori_RemakeApp.swift */; };
+		B9E7AE212A87C7D2006F323E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E7AE202A87C7D2006F323E /* Assets.xcassets */; };
+		B9E7AE242A87C7D2006F323E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E7AE232A87C7D2006F323E /* Preview Assets.xcassets */; };
+		B9E7AE292A87C7D2006F323E /* Tori_Remake.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9E7AE272A87C7D2006F323E /* Tori_Remake.xcdatamodeld */; };
+		B9E7AE312A87C942006F323E /* SchibstedGrotesk-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9E7AE302A87C941006F323E /* SchibstedGrotesk-Italic-VariableFont_wght.ttf */; };
+		B9E7AE332A87C94B006F323E /* SchibstedGrotesk-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9E7AE322A87C94B006F323E /* SchibstedGrotesk-VariableFont_wght.ttf */; };
+		B9E7AE392A8895A6006F323E /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7AE382A8895A6006F323E /* MainMenuView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B95620102A88CC39003C14C0 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		B95620122A88D21B003C14C0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B95620142A88D246003C14C0 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
+		B9E7AE192A87C7D1006F323E /* Tori-Remake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tori-Remake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9E7AE1C2A87C7D1006F323E /* Tori_RemakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tori_RemakeApp.swift; sourceTree = "<group>"; };
+		B9E7AE202A87C7D2006F323E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B9E7AE232A87C7D2006F323E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B9E7AE282A87C7D2006F323E /* Tori_Remake.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tori_Remake.xcdatamodel; sourceTree = "<group>"; };
+		B9E7AE302A87C941006F323E /* SchibstedGrotesk-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SchibstedGrotesk-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		B9E7AE322A87C94B006F323E /* SchibstedGrotesk-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SchibstedGrotesk-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		B9E7AE382A8895A6006F323E /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9E7AE162A87C7D1006F323E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B9E7AE102A87C7D1006F323E = {
+			isa = PBXGroup;
+			children = (
+				B9E7AE1B2A87C7D1006F323E /* Tori-Remake */,
+				B9E7AE1A2A87C7D1006F323E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B9E7AE1A2A87C7D1006F323E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9E7AE192A87C7D1006F323E /* Tori-Remake.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9E7AE1B2A87C7D1006F323E /* Tori-Remake */ = {
+			isa = PBXGroup;
+			children = (
+				B9E7AE372A87D0D3006F323E /* ViewModel */,
+				B9E7AE362A87D0B4006F323E /* Styling */,
+				B9E7AE352A87D092006F323E /* Model */,
+				B9E7AE342A87D083006F323E /* View */,
+				B9E7AE1C2A87C7D1006F323E /* Tori_RemakeApp.swift */,
+				B9E7AE202A87C7D2006F323E /* Assets.xcassets */,
+				B9E7AE272A87C7D2006F323E /* Tori_Remake.xcdatamodeld */,
+				B9E7AE222A87C7D2006F323E /* Preview Content */,
+			);
+			path = "Tori-Remake";
+			sourceTree = "<group>";
+		};
+		B9E7AE222A87C7D2006F323E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B9E7AE232A87C7D2006F323E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B9E7AE2F2A87C91D006F323E /* Grotesk-Font */ = {
+			isa = PBXGroup;
+			children = (
+				B9E7AE322A87C94B006F323E /* SchibstedGrotesk-VariableFont_wght.ttf */,
+				B9E7AE302A87C941006F323E /* SchibstedGrotesk-Italic-VariableFont_wght.ttf */,
+			);
+			path = "Grotesk-Font";
+			sourceTree = "<group>";
+		};
+		B9E7AE342A87D083006F323E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9E7AE382A8895A6006F323E /* MainMenuView.swift */,
+				B95620102A88CC39003C14C0 /* CategoriesView.swift */,
+				B95620142A88D246003C14C0 /* AdView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9E7AE352A87D092006F323E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9E7AE362A87D0B4006F323E /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				B95620122A88D21B003C14C0 /* Constants.swift */,
+				B9E7AE2F2A87C91D006F323E /* Grotesk-Font */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
+		B9E7AE372A87D0D3006F323E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9E7AE182A87C7D1006F323E /* Tori-Remake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9E7AE2C2A87C7D2006F323E /* Build configuration list for PBXNativeTarget "Tori-Remake" */;
+			buildPhases = (
+				B9E7AE152A87C7D1006F323E /* Sources */,
+				B9E7AE162A87C7D1006F323E /* Frameworks */,
+				B9E7AE172A87C7D1006F323E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tori-Remake";
+			productName = "Tori-Remake";
+			productReference = B9E7AE192A87C7D1006F323E /* Tori-Remake.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9E7AE112A87C7D1006F323E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					B9E7AE182A87C7D1006F323E = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = B9E7AE142A87C7D1006F323E /* Build configuration list for PBXProject "Tori-Remake" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B9E7AE102A87C7D1006F323E;
+			productRefGroup = B9E7AE1A2A87C7D1006F323E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9E7AE182A87C7D1006F323E /* Tori-Remake */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9E7AE172A87C7D1006F323E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9E7AE242A87C7D2006F323E /* Preview Assets.xcassets in Resources */,
+				B9E7AE332A87C94B006F323E /* SchibstedGrotesk-VariableFont_wght.ttf in Resources */,
+				B9E7AE212A87C7D2006F323E /* Assets.xcassets in Resources */,
+				B9E7AE312A87C942006F323E /* SchibstedGrotesk-Italic-VariableFont_wght.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9E7AE152A87C7D1006F323E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B95620132A88D21B003C14C0 /* Constants.swift in Sources */,
+				B9E7AE392A8895A6006F323E /* MainMenuView.swift in Sources */,
+				B95620112A88CC39003C14C0 /* CategoriesView.swift in Sources */,
+				B95620152A88D246003C14C0 /* AdView.swift in Sources */,
+				B9E7AE292A87C7D2006F323E /* Tori_Remake.xcdatamodeld in Sources */,
+				B9E7AE1D2A87C7D1006F323E /* Tori_RemakeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B9E7AE2A2A87C7D2006F323E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B9E7AE2B2A87C7D2006F323E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B9E7AE2D2A87C7D2006F323E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tori-Remake/Preview Content\"";
+				DEVELOPMENT_TEAM = KRPJJNJAQG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Portfolio.Tori-Remake";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B9E7AE2E2A87C7D2006F323E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tori-Remake/Preview Content\"";
+				DEVELOPMENT_TEAM = KRPJJNJAQG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Portfolio.Tori-Remake";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9E7AE142A87C7D1006F323E /* Build configuration list for PBXProject "Tori-Remake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E7AE2A2A87C7D2006F323E /* Debug */,
+				B9E7AE2B2A87C7D2006F323E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9E7AE2C2A87C7D2006F323E /* Build configuration list for PBXNativeTarget "Tori-Remake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E7AE2D2A87C7D2006F323E /* Debug */,
+				B9E7AE2E2A87C7D2006F323E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B9E7AE272A87C7D2006F323E /* Tori_Remake.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B9E7AE282A87C7D2006F323E /* Tori_Remake.xcdatamodel */,
+			);
+			currentVersion = B9E7AE282A87C7D2006F323E /* Tori_Remake.xcdatamodel */;
+			path = Tori_Remake.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B9E7AE112A87C7D1006F323E /* Project object */;
+}
