@@ -13,18 +13,20 @@ struct CategoriesView: View {
         ScrollView(.horizontal)
         {
             LazyHStack(spacing: 15){
-                ForEach(0..<7) { index in
-                    VStack{
-                        RoundedRectangle(cornerRadius: 15)
-                            .foregroundColor(.red)
-                            .frame(width: 100, height: 100)
-                            .padding(.bottom, 2)
-                        
-                        Text("Category \(index + 1)")
-                            .foregroundColor(.black)
-                            .font(.caption)
+                ForEach(Category.allCases, id: \.self) { category in
+                    if let imageHolder = categoryImages[category] {
+                        VStack{
+                            Image(imageHolder)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .padding(.bottom, 2)
+                            
+                            Text(category.rawValue.capitalized)
+                                .foregroundColor(.black)
+                                .font(.caption)
+                        }
                     }
-                    
                 }
             }
             .padding(.leading, 5)

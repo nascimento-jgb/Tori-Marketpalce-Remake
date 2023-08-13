@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B93D64AE2A89278100780ABD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D64AD2A89278100780ABD /* Category.swift */; };
 		B95620112A88CC39003C14C0 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620102A88CC39003C14C0 /* CategoriesView.swift */; };
 		B95620132A88D21B003C14C0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620122A88D21B003C14C0 /* Constants.swift */; };
 		B95620152A88D246003C14C0 /* AdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620142A88D246003C14C0 /* AdCardView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B93D64AD2A89278100780ABD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B95620102A88CC39003C14C0 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		B95620122A88D21B003C14C0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B95620142A88D246003C14C0 /* AdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCardView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		B9E7AE352A87D092006F323E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B93D64AD2A89278100780ABD /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				B95620152A88D246003C14C0 /* AdCardView.swift in Sources */,
 				B9E7AE292A87C7D2006F323E /* Tori_Remake.xcdatamodeld in Sources */,
 				B9E7AE1D2A87C7D1006F323E /* Tori_RemakeApp.swift in Sources */,
+				B93D64AE2A89278100780ABD /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

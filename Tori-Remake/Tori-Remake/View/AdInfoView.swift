@@ -34,7 +34,7 @@ struct AdInfoView: View {
                     .foregroundColor(.black)
                     .font(.system(size: 20))
                 }
-                .padding(.top, -175)
+                .padding(.top, -200)
                 .padding(.trailing, 14)
             } //ZStack
             
@@ -59,9 +59,11 @@ struct AdInfoView: View {
                         Spacer()
                         HStack{
                             Image(systemName: "calendar")
+                                .foregroundColor(Constants.Colors.primaryColor)
                             Text("Date")
                                 .font(.title3)
                                 .padding(.bottom, 2)
+                                
                                 
                             
                         }
@@ -71,6 +73,7 @@ struct AdInfoView: View {
                         
                         HStack{
                             Image(systemName: "mappin.and.ellipse")
+                                .foregroundColor(Constants.Colors.primaryColor)
                             Text("Location")
                                 .font(.title3)
                                 .padding(.bottom, 2)
@@ -86,11 +89,13 @@ struct AdInfoView: View {
                             Spacer()
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 4))
+                                .foregroundColor(Constants.Colors.primaryColor)
                             Spacer()
                             Text("For Sale")
                             Spacer()
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 4))
+                                .foregroundColor(Constants.Colors.primaryColor)
                             Spacer()
                             Text("Size M")
                                 .padding(.trailing, 25)
@@ -165,7 +170,7 @@ struct AdInfoView: View {
                         Text("Send Message")
                             .frame(maxWidth: .infinity)
                             .frame(height: 45) // Adjust the height as needed
-                            .background(Color.red)
+                            .background(Constants.Colors.primaryColor)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                         }

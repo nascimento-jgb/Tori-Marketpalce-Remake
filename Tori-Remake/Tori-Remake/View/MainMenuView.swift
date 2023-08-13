@@ -59,7 +59,7 @@ struct MainMenuView: View {
                             .padding(.horizontal, 8)
                         
                         Image(systemName: "person")
-                            .foregroundColor(.red)
+                            .foregroundColor(Constants.Colors.primaryColor)
                             .padding(.trailing, 2)
                     }
                     .padding()
