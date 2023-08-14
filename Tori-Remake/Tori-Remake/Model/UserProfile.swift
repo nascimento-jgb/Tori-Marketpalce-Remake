@@ -13,6 +13,7 @@ struct User: Encodable, Identifiable {
     let accountCreationDate: Date
     let listOfAdds: [Product]
     let listOfFavorites: [Product]
+    let listOfMessages: [String]
 }
 
 struct Product: Encodable, Identifiable {

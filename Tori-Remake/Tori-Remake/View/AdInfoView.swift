@@ -225,7 +225,8 @@ struct AdInfoView_Previews: PreviewProvider {
                                     typeOfSale: "For Sale",
                                     size: nil),
                          ],
-                         listOfFavorites: [])
+                         listOfFavorites: [],
+                         listOfMessages: [])
         
         AdInfoView(user: user1, product: user1.listOfAdds[0])
     }

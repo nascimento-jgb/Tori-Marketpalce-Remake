@@ -109,7 +109,8 @@ struct AdCardView_Previews: PreviewProvider {
                                     typeOfSale: "For Sale",
                                     size: nil),
                          ],
-                         listOfFavorites: [])
+                         listOfFavorites: [],
+                         listOfMessages: [])
         
         AdCardView(user: user1, product: user1.listOfAdds[0])
     }

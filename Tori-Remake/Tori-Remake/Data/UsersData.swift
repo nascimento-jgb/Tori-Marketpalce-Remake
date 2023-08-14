@@ -34,7 +34,8 @@ let user1 = User(id: UUID(),
                             typeOfSale: "For Sale",
                             size: nil),
                  ],
-                 listOfFavorites: [])
+                 listOfFavorites: [],
+                 listOfMessages: [])
 
 let user2 = User(id: UUID(),
                  name: "Jane Smith",
@@ -71,4 +72,5 @@ let user2 = User(id: UUID(),
                             typeOfSale: "For Sale",
                             size: "M"),
                  ],
-                 listOfFavorites: [])
+                 listOfFavorites: [],
+                 listOfMessages: [])
