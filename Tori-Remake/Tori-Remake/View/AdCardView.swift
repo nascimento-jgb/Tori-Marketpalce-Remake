@@ -9,21 +9,21 @@ import SwiftUI
 
 struct AdCardView: View {
     
+    var user: User
+    let product: Product
+    
     var body: some View {
         
-        NavigationLink(destination: AdInfoView()){
+        NavigationLink(destination: AdInfoView(user: user, product: product)){
             
             ZStack{
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(.white)
                     .shadow(radius: 5)
                     .frame(width: 400, height: 180)
-                    .onTapGesture {
-                        print("Outter Card tapped")
-                    }
                 
                 HStack{
-                    Image("Shirt")
+                    Image(product.imageUrl)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 180, height: 200)
@@ -32,7 +32,7 @@ struct AdCardView: View {
 
                     VStack{
                         HStack{
-                            Text("Cool T-Shirt")
+                            Text(product.name)
                                 .padding(.leading, -5)
                                 .font(.title2)
                                 .padding(1)
@@ -51,13 +51,13 @@ struct AdCardView: View {
                             
                             HStack{
                                 Image(systemName: "mappin.and.ellipse")
-                                Text("Location")
+                                Text(product.location)
                             }
                             .padding(1)
                             
                             HStack {
                                 Image(systemName: "calendar")
-                                Text("Date")
+                                Text(dateFormatter.string(from: product.postingDate))
                             }
                             
                         }
@@ -67,7 +67,7 @@ struct AdCardView: View {
                         
                         HStack{
                             Spacer ()
-                            Text("200 $")
+                            Text("$ \(String(format: "%.2f", product.price))")
                                 .font(.system(size: 18, weight: .semibold))
                                 .padding(.trailing, 20)
                                 .padding(.top, -15)
@@ -83,9 +83,35 @@ struct AdCardView: View {
     }
 }
 
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short // Customize the date style as needed
+    return formatter
+}()
+
 struct AdCardView_Previews: PreviewProvider {
+   
+    
     static var previews: some View {
-        AdCardView()
+        
+        let user1 = User(id: UUID(),
+                         name: "John Doe",
+                         accountCreationDate: Date(),
+                         listOfAdds: [
+                            Product(id: UUID(),
+                                    name: "iPhone 13",
+                                    price: 799.99,
+                                    imageUrl: "Shirt",
+                                    location: "Helsinki",
+                                    postingDate: Date(),
+                                    category: "Electronics",
+                                    info: "Latest iPhone model",
+                                    typeOfSale: "For Sale",
+                                    size: nil),
+                         ],
+                         listOfFavorites: [])
+        
+        AdCardView(user: user1, product: user1.listOfAdds[0])
     }
 }
 

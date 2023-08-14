@@ -10,12 +10,15 @@ import SwiftUI
 struct AdInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    var user: User
+    let product: Product
+    
     var body: some View {
         
         VStack{
             
             ZStack{
-                Image("Shirt")
+                Image(product.imageUrl)
                     .resizable()
                     .scaledToFit()
                     
@@ -44,13 +47,13 @@ struct AdInfoView: View {
             {
                 VStack{
                     
-                        Text("Cool T-Shirt")
+                    Text(product.name)
                             .font(.title).bold()
                             .padding(.leading, -160)
                             .padding(.bottom, 2)
                             .padding(.top, 2)
                     
-                        Text("$ 200")
+                    Text("$ \(String(format: "%.2f", product.price))")
                           .font(.title2.weight(.semibold))
                             .padding(.leading, -160)
                             .padding(.bottom, 12)
@@ -60,7 +63,7 @@ struct AdInfoView: View {
                         HStack{
                             Image(systemName: "calendar")
                                 .foregroundColor(Constants.Colors.primaryColor)
-                            Text("Date")
+                            Text(dateFormatter.string(from: product.postingDate))
                                 .font(.title3)
                                 .padding(.bottom, 2)
                                 
@@ -74,7 +77,7 @@ struct AdInfoView: View {
                         HStack{
                             Image(systemName: "mappin.and.ellipse")
                                 .foregroundColor(Constants.Colors.primaryColor)
-                            Text("Location")
+                            Text(product.location)
                                 .font(.title3)
                                 .padding(.bottom, 2)
                         }
@@ -84,26 +87,26 @@ struct AdInfoView: View {
                     .padding(.bottom, 8)
                         
                         HStack{
-                            Text("Clothing")
+                            Text(product.name)
                                 .padding(.leading, 25)
                             Spacer()
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 4))
                                 .foregroundColor(Constants.Colors.primaryColor)
                             Spacer()
-                            Text("For Sale")
+                            Text(product.typeOfSale)
                             Spacer()
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 4))
                                 .foregroundColor(Constants.Colors.primaryColor)
                             Spacer()
-                            Text("Size M")
+                            Text(product.size ?? "No Size")
                                 .padding(.trailing, 25)
                         }
                         .font(.title3.weight(.semibold))
                         .padding(.bottom, 15)
                     
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed sit amet sollicitudin quam. Vivamus euismod arcu sed erat fermentum, vel interdum neque pharetra. Fusce consequat nisl eget lectus hendrerit lacinia. Quisque fringilla turpis eu velit tincidunt, et hendrerit sapien ultricies. Ut scelerisque lorem ut ante accumsan, id volutpat urna cursus. Suspendisse eget eros non lectus mattis mattis. Proin rhoncus elit in dui tristique viverra. Aenean ac justo in justo interdum feugiat a a magna. Donec auctor, ligula in consectetur tincidunt, nunc tellus elementum libero, eu efficitur nulla purus vel augue.")
+                    Text(product.info)
                         .multilineTextAlignment(.leading)
                         .padding(.leading, 25)
                         .padding(.trailing, 15)
@@ -114,11 +117,11 @@ struct AdInfoView: View {
                             .font(.title3.weight(.semibold))
                             .padding(1)
      
-                        Text("John Nascimento")
+                        Text(user.name)
                             .font(.title2.weight(.regular))
                             .multilineTextAlignment(.leading)
                     
-                        Text("Account created in Nov 2022")
+                        Text("Account created in \(dateFormatter.string(from: user.accountCreationDate))")
                             .multilineTextAlignment(.leading)
                             .padding(.bottom, 6)
                     
@@ -205,7 +208,25 @@ struct BackButton: View {
 
 
 struct AdInfoView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        AdInfoView()
+        let user1 = User(id: UUID(),
+                         name: "John Doe",
+                         accountCreationDate: Date(),
+                         listOfAdds: [
+                            Product(id: UUID(),
+                                    name: "iPhone 13",
+                                    price: 799.99,
+                                    imageUrl: "Shirt",
+                                    location: "Helsinki",
+                                    postingDate: Date(),
+                                    category: "Electronics",
+                                    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed sit amet sollicitudin quam. Vivamus euismod arcu sed erat fermentum, vel interdum neque pharetra. Fusce consequat nisl eget lectus hendrerit lacinia. Quisque fringilla turpis eu velit tincidunt, et hendrerit sapien ultricies. Ut scelerisque lorem ut ante accumsan, id volutpat urna cursus. Suspendisse eget eros non lectus mattis mattis. Proin rhoncus elit in dui tristique viverra. Aenean ac justo in justo interdum feugiat a a magna. Donec auctor, ligula in consectetur tincidunt, nunc tellus elementum libero, eu efficitur nulla purus vel augue.",
+                                    typeOfSale: "For Sale",
+                                    size: nil),
+                         ],
+                         listOfFavorites: [])
+        
+        AdInfoView(user: user1, product: user1.listOfAdds[0])
     }
 }

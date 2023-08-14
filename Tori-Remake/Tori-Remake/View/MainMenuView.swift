@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainMenuView: View {
     
+    @EnvironmentObject var userData: UserData
+    
     @State private var showMenu = false
     @State private var searchText = ""
 
@@ -19,20 +21,17 @@ struct MainMenuView: View {
                 {
                     Spacer()
                     
-                    AdCardView()
-                        .padding(1)
-                    AdCardView()
-                        .padding(1)
-                    AdCardView()
-                        .padding(1)
-                    AdCardView()
-                        .padding(1)
-                    AdCardView()
-                        .padding(1)
+                    ForEach(userData.users) { user in
+                        ForEach(user.listOfAdds) { product in
+                            AdCardView(user: user, product: product)
+                                .padding(1)
+                        }
+                    }
+                    
                 }
                 
+                
                 VStack {
-//                    Spacer()
                     Image(systemName: "chevron.compact.up")
                         .foregroundColor(.gray)
                         .padding(.trailing, 10)
@@ -71,13 +70,25 @@ struct MainMenuView: View {
                         }
                 }//VStack
             }//ZStack
+            .onAppear {
+                printUsersName()
+            }
         }
     }
+    
+    func printUsersName() {
+            for user in userData.users {
+                print("DATA: \(user.name)")
+            }
+        }
 }
 
 
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuView()
+            .environmentObject(UserData.shared)
     }
 }
+
+

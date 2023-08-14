@@ -14,6 +14,7 @@
             WindowGroup {
                 NavigationView{
                     MainMenuView()
+                        .environmentObject(UserData.shared)
                 }
             }
         }
