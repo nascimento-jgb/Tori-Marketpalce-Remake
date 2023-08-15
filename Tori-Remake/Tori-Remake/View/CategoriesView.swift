@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CategoriesView: View {
+    
+    @Binding var categoryStatus: String
+    
     var body: some View {
         
         ScrollView(.horizontal)
@@ -16,15 +19,21 @@ struct CategoriesView: View {
                 ForEach(Category.allCases, id: \.self) { category in
                     if let imageHolder = categoryImages[category] {
                         VStack{
-                            Image(imageHolder)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                                .padding(.bottom, 2)
+                            Button(action: {
+                                categoryStatus = category.rawValue
+                                print(categoryStatus)
+                            }){
+                                Image(imageHolder)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 90, height: 90)
+                                    .padding(.bottom, 2)
+                            }
                             
                             Text(category.rawValue.capitalized)
                                 .foregroundColor(.black)
                                 .font(.caption)
+                            
                         }
                     }
                 }
@@ -32,12 +41,20 @@ struct CategoriesView: View {
             .padding(.leading, 5)
             .padding()
         }
-        .frame(height: 150)
+        .frame(height: 130)
     }
 }
 
 struct CategoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoriesView()
+        CategoriesViewPreview()
+    }
+}
+
+struct CategoriesViewPreview: View {
+    @State private var categoryStatus: String = "" // Simulate the binding
+    
+    var body: some View {
+        CategoriesView(categoryStatus: $categoryStatus)
     }
 }

@@ -14,6 +14,7 @@ struct MainMenuView: View {
     
     @State private var showMenu = false
     @State private var searchText = ""
+    @State private var categoryStatus = ""
     
     init(viewModel: MainMenuViewModel) {
         self.viewModel = viewModel
@@ -29,7 +30,10 @@ struct MainMenuView: View {
                     ForEach(viewModel.users) { user in
                         if let addedProducts = user.addedProducts?.allObjects as? [CoreProduct], !addedProducts.isEmpty {
                             let sortedProducts = addedProducts.sorted { $0.postingDate! < $1.postingDate!}
-                            ForEach(sortedProducts.filter { searchText.isEmpty ? true : $0.name?.localizedCaseInsensitiveContains(searchText) ?? false }) { product in
+                            ForEach(sortedProducts.filter { product in
+                                (categoryStatus.isEmpty || product.category == categoryStatus) &&
+                                (searchText.isEmpty || product.name?.localizedCaseInsensitiveContains(searchText) ?? false)
+                            }) { product in
                                 AdCardView(coreUser: user, coreProduct: product)
                                     .padding(1)
                             }
@@ -70,7 +74,7 @@ struct MainMenuView: View {
                     .padding()
                     
                     if showMenu {
-                        CategoriesView()
+                        CategoriesView(categoryStatus: $categoryStatus)
                             .padding(2)
                             .animation(.spring().delay(2), value: showMenu)
                     }
