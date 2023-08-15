@@ -10,15 +10,16 @@ import SwiftUI
 struct AdInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    var user: User
-    let product: Product
+    @ObservedObject var coreUser: CoreUser
+    @ObservedObject var coreProduct: CoreProduct
+    
     
     var body: some View {
         
         VStack{
             
             ZStack{
-                Image(product.imageUrl)
+                Image(coreProduct.imageInfo ?? "")
                     .resizable()
                     .scaledToFit()
                     
@@ -47,13 +48,13 @@ struct AdInfoView: View {
             {
                 VStack{
                     
-                    Text(product.name)
+                    Text(coreProduct.name ?? "")
                             .font(.title).bold()
                             .padding(.leading, -160)
                             .padding(.bottom, 2)
                             .padding(.top, 2)
                     
-                    Text("$ \(String(format: "%.2f", product.price))")
+                    Text("$ \(String(format: "%.2f", coreProduct.price))")
                           .font(.title2.weight(.semibold))
                             .padding(.leading, -160)
                             .padding(.bottom, 12)
@@ -63,7 +64,7 @@ struct AdInfoView: View {
                         HStack{
                             Image(systemName: "calendar")
                                 .foregroundColor(Constants.Colors.primaryColor)
-                            Text(dateFormatter.string(from: product.postingDate))
+                            Text(dateFormatter.string(from: coreProduct.postingDate!))
                                 .font(.title3)
                                 .padding(.bottom, 2)
                                 
@@ -77,7 +78,7 @@ struct AdInfoView: View {
                         HStack{
                             Image(systemName: "mappin.and.ellipse")
                                 .foregroundColor(Constants.Colors.primaryColor)
-                            Text(product.location)
+                            Text(coreProduct.location ?? "")
                                 .font(.title3)
                                 .padding(.bottom, 2)
                         }
@@ -87,26 +88,26 @@ struct AdInfoView: View {
                     .padding(.bottom, 8)
                         
                         HStack{
-                            Text(product.name)
+                            Text(coreProduct.name ?? "")
                                 .padding(.leading, 25)
                             Spacer()
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 4))
                                 .foregroundColor(Constants.Colors.primaryColor)
                             Spacer()
-                            Text(product.typeOfSale)
+                            Text(coreProduct.typeOfSale ?? "")
                             Spacer()
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 4))
                                 .foregroundColor(Constants.Colors.primaryColor)
                             Spacer()
-                            Text(product.size ?? "No Size")
+                            Text(coreProduct.size ?? "")
                                 .padding(.trailing, 25)
                         }
                         .font(.title3.weight(.semibold))
                         .padding(.bottom, 15)
                     
-                    Text(product.info)
+                    Text(coreProduct.info ?? "")
                         .multilineTextAlignment(.leading)
                         .padding(.leading, 25)
                         .padding(.trailing, 15)
@@ -117,11 +118,11 @@ struct AdInfoView: View {
                             .font(.title3.weight(.semibold))
                             .padding(1)
      
-                        Text(user.name)
+                        Text(coreUser.name ?? "")
                             .font(.title2.weight(.regular))
                             .multilineTextAlignment(.leading)
                     
-                        Text("Account created in \(dateFormatter.string(from: user.accountCreationDate))")
+                    Text("Account created in \(dateFormatter.string(from: coreUser.accountCreationDate!))")
                             .multilineTextAlignment(.leading)
                             .padding(.bottom, 6)
                     
@@ -207,27 +208,30 @@ struct BackButton: View {
 }
 
 
-struct AdInfoView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        let user1 = User(id: UUID(),
-                         name: "John Doe",
-                         accountCreationDate: Date(),
-                         listOfAdds: [
-                            Product(id: UUID(),
-                                    name: "iPhone 13",
-                                    price: 799.99,
-                                    imageUrl: "Shirt",
-                                    location: "Helsinki",
-                                    postingDate: Date(),
-                                    category: "Electronics",
-                                    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed sit amet sollicitudin quam. Vivamus euismod arcu sed erat fermentum, vel interdum neque pharetra. Fusce consequat nisl eget lectus hendrerit lacinia. Quisque fringilla turpis eu velit tincidunt, et hendrerit sapien ultricies. Ut scelerisque lorem ut ante accumsan, id volutpat urna cursus. Suspendisse eget eros non lectus mattis mattis. Proin rhoncus elit in dui tristique viverra. Aenean ac justo in justo interdum feugiat a a magna. Donec auctor, ligula in consectetur tincidunt, nunc tellus elementum libero, eu efficitur nulla purus vel augue.",
-                                    typeOfSale: "For Sale",
-                                    size: nil),
-                         ],
-                         listOfFavorites: [],
-                         listOfMessages: [])
-        
-        AdInfoView(user: user1, product: user1.listOfAdds[0])
-    }
-}
+//struct AdInfoView_Previews: PreviewProvider {
+//
+//    @ObservedObject var coreProduct: CoreProduct
+//    @ObservedObject var coreUser: CoreUser
+//
+//    static var previews: some View {
+//        //        let user1 = User(id: UUID(),
+//        //                         name: "John Doe",
+//        //                         accountCreationDate: Date(),
+//        //                         listOfAdds: [
+//        //                            Product(id: UUID(),
+//        //                                    name: "iPhone 13",
+//        //                                    price: 799.99,
+//        //                                    imageUrl: "Shirt",
+//        //                                    location: "Helsinki",
+//        //                                    postingDate: Date(),
+//        //                                    category: "Electronics",
+//        //                                    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed sit amet sollicitudin quam. Vivamus euismod arcu sed erat fermentum, vel interdum neque pharetra. Fusce consequat nisl eget lectus hendrerit lacinia. Quisque fringilla turpis eu velit tincidunt, et hendrerit sapien ultricies. Ut scelerisque lorem ut ante accumsan, id volutpat urna cursus. Suspendisse eget eros non lectus mattis mattis. Proin rhoncus elit in dui tristique viverra. Aenean ac justo in justo interdum feugiat a a magna. Donec auctor, ligula in consectetur tincidunt, nunc tellus elementum libero, eu efficitur nulla purus vel augue.",
+//        //                                    typeOfSale: "For Sale",
+//        //                                    size: "No Size"),
+//        //                         ],
+//        //                         listOfFavorites: [],
+//        //                         listOfMessages: [])
+//
+//        AdInfoView()
+//    }
+//}

@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+class CoreDataManager : ObservableObject {
     static let shared = CoreDataManager()
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -35,9 +35,22 @@ class CoreDataManager {
         }
     }
     
+    func clearUserData() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreUser.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try managedObjectContext.execute(batchDeleteRequest)
+        } catch {
+            print("Error clearing existing data: \(error)")
+        }
+    }
+    
     func transferDataFromUserData() {
         let manager = CoreDataManager.shared
         let context = manager.managedObjectContext
+        
+        clearUserData()
             
         // Loop through users in UserData.shared and create User entities in Core Data
         for user in UserData.shared.users {
@@ -45,16 +58,14 @@ class CoreDataManager {
             coreUser.id = user.id
             coreUser.name = user.name
             coreUser.accountCreationDate = user.accountCreationDate
-            coreUser.listOfMessages = user.listOfMessages as NSArray
-            
                 
         // Loop through user's listOfAdds and create Product entities in Core Data
-        for product in user.listOfAdds {
+            for product in user.listOfAdds {
             let coreProduct = CoreProduct(context: context)
             coreProduct.id = product.id
             coreProduct.name = product.name
             coreProduct.price = product.price
-            coreProduct.imageUrl = product.imageUrl
+            coreProduct.imageInfo = product.imageUrl
             coreProduct.location = product.location
             coreProduct.postingDate = product.postingDate
             coreProduct.category = product.category
@@ -62,7 +73,7 @@ class CoreDataManager {
             coreProduct.typeOfSale = product.typeOfSale
             coreProduct.size = product.size
                     
-            coreUser.addToAdds(coreProduct)
+            coreUser.addToAddedProducts(coreProduct)
             }
             
         for product in user.listOfFavorites {
@@ -70,7 +81,7 @@ class CoreDataManager {
             coreProduct.id = product.id
             coreProduct.name = product.name
             coreProduct.price = product.price
-            coreProduct.imageUrl = product.imageUrl
+            coreProduct.imageInfo = product.imageUrl
             coreProduct.location = product.location
             coreProduct.postingDate = product.postingDate
             coreProduct.category = product.category
@@ -78,11 +89,39 @@ class CoreDataManager {
             coreProduct.typeOfSale = product.typeOfSale
             coreProduct.size = product.size
             
-            coreUser.addToFavorites(coreProduct)
+            coreUser.addToAddedFavorites(coreProduct)
             }
                 
             // Save the managed object context
             manager.saveContext()
         }
     }
+    
+    func fetchUser(withID id: UUID) -> CoreUser? {
+        let fetchRequest: NSFetchRequest<CoreUser> = CoreUser.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        fetchRequest.relationshipKeyPathsForPrefetching = ["addedProducts", "addedFavorites"]
+
+        do {
+            let fetchedUsers = try managedObjectContext.fetch(fetchRequest)
+            return fetchedUsers.first
+        } catch {
+            print("Error fetching user: \(error)")
+            return nil
+        }
+    }
+    
+    func fetchAllUsers() -> [CoreUser]? {
+        let fetchRequest: NSFetchRequest<CoreUser> = CoreUser.fetchRequest()
+        fetchRequest.relationshipKeyPathsForPrefetching = ["addedProducts", "addedFavorites"]
+
+        do {
+            let fetchedUsers = try managedObjectContext.fetch(fetchRequest)
+            return fetchedUsers
+        } catch {
+            print("Error fetching all users: \(error)")
+            return nil
+        }
+    }
+    
 }

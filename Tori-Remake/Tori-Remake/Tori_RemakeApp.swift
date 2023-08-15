@@ -9,14 +9,17 @@
 
     @main
     struct Tori_RemakeApp: App {
+        let context = CoreDataManager.shared.managedObjectContext
+        let viewModel = MainMenuViewModel()
         
         var body: some Scene {
             WindowGroup {
                 NavigationView{
-                    MainMenuView()
-                        .environmentObject(UserData.shared)
+                    MainMenuView(viewModel: viewModel)
+                        .onAppear {
+                            CoreDataManager.shared.transferDataFromUserData()
+                        }
                 }
             }
         }
-        
     }

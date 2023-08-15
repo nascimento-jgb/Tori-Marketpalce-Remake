@@ -13,7 +13,6 @@ struct User: Encodable, Identifiable {
     let accountCreationDate: Date
     let listOfAdds: [Product]
     let listOfFavorites: [Product]
-    let listOfMessages: [String]
 }
 
 struct Product: Encodable, Identifiable {
@@ -27,5 +26,5 @@ struct Product: Encodable, Identifiable {
     let category: String
     let info: String
     let typeOfSale: String
-    let size: String?
+    let size: String
 }
