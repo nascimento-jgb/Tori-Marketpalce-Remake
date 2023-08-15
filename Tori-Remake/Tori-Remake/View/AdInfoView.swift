@@ -67,11 +67,7 @@ struct AdInfoView: View {
                             Text(dateFormatter.string(from: coreProduct.postingDate!))
                                 .font(.title3)
                                 .padding(.bottom, 2)
-                                
-                                
-                            
                         }
-//                        .padding(.leading, 36)
                     
                         Spacer()
                         
@@ -88,8 +84,9 @@ struct AdInfoView: View {
                     .padding(.bottom, 8)
                         
                         HStack{
-                            Text(coreProduct.name ?? "")
+                            Text(coreProduct.category ?? "")
                                 .padding(.leading, 25)
+//                                .multilineTextAlignment(.center)
                             Spacer()
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 4))

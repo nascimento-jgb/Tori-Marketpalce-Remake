@@ -32,6 +32,35 @@ class MainMenuViewModel: ObservableObject {
         users = fetchedUsers
     }
     
+    func categorySelectionHeaderView(categoryStatus: Binding<String>) -> AnyView {
+        if categoryStatus.wrappedValue != "" {
+            return AnyView(
+            HStack{
+                Image(categoryImages[Category(rawValue: categoryStatus.wrappedValue)!]!)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                    .padding(.leading, 35)
+                
+                Spacer()
+                Button(action: {
+                    categoryStatus.wrappedValue = ""
+                }) {
+                    Text("reset")
+                        .foregroundColor(.black)
+                        .underline()
+                        .padding(.trailing, 35)
+                }
+            }
+            .frame(height: 55)
+            )
+        } else {
+            return AnyView(EmptyView()) // Return an empty view if categoryStatus is empty
+        }
+    }
+
+    func 
+
 }
 
 

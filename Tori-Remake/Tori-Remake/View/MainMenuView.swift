@@ -24,6 +24,7 @@ struct MainMenuView: View {
         ZStack {
             VStack{
                 
+                viewModel.categorySelectionHeaderView(categoryStatus: $categoryStatus)
                 ScrollView
                 {
                     Spacer()
