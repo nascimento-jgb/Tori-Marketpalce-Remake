@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class MainMenuViewModel: ObservableObject {
     
@@ -30,7 +31,10 @@ class MainMenuViewModel: ObservableObject {
         }
         users = fetchedUsers
     }
+    
 }
+
+
 
 
 

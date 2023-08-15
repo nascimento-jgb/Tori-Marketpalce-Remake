@@ -21,14 +21,14 @@ class UserData : ObservableObject {
 
 let user1 = User(id: UUID(),
                  name: "John Doe",
-                 accountCreationDate: Date(),
+                 accountCreationDate: randomDate(),
                  listOfAdds: [
                     Product(id: UUID(),
                             name: "iPhone 13",
                             price: 799.99,
                             imageUrl: "Shirt",
                             location: "Helsinki",
-                            postingDate: Date(),
+                            postingDate: randomDate(),
                             category: "Electronics",
                             info: "Latest iPhone model",
                             typeOfSale: "For Sale",
@@ -38,14 +38,14 @@ let user1 = User(id: UUID(),
 
 let user2 = User(id: UUID(),
                  name: "Jane Smith",
-                 accountCreationDate: Date(),
+                 accountCreationDate: randomDate(),
                  listOfAdds: [
                     Product(id: UUID(),
                             name: "Mountain Bike",
                             price: 499.99,
                             imageUrl: "Shirt",
                             location: "Tampere",
-                            postingDate: Date(),
+                            postingDate: randomDate(),
                             category: "Hobbies",
                             info: "High-quality mountain bike",
                             typeOfSale: "For Sale",
@@ -55,7 +55,7 @@ let user2 = User(id: UUID(),
                             price: 799.99,
                             imageUrl: "Shirt",
                             location: "Turku",
-                            postingDate: Date(),
+                            postingDate: randomDate(),
                             category: "Living",
                             info: "Comfortable sofa for your home",
                             typeOfSale: "For Sale",
@@ -65,10 +65,17 @@ let user2 = User(id: UUID(),
                             price: 29.99,
                             imageUrl: "Shirt",
                             location: "Vantaa",
-                            postingDate: Date(),
+                            postingDate: randomDate(),
                             category: "Clothing",
                             info: "Soft cotton t-shirt",
                             typeOfSale: "For Sale",
                             size: "M"),
                  ],
                  listOfFavorites: [])
+
+func randomDate() -> Date {
+    let currentDate = Date()
+    
+    let randomTimeInterval = TimeInterval(arc4random_uniform(UInt32(365 * 24 * 60 * 60))) // Random interval within a year (in seconds)
+    return currentDate.addingTimeInterval(randomTimeInterval)
+}

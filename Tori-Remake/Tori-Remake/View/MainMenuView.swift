@@ -28,7 +28,8 @@ struct MainMenuView: View {
                     Spacer()
                     ForEach(viewModel.users) { user in
                         if let addedProducts = user.addedProducts?.allObjects as? [CoreProduct], !addedProducts.isEmpty {
-                            ForEach(addedProducts) { product in
+                            let sortedProducts = addedProducts.sorted { $0.postingDate! < $1.postingDate!}
+                            ForEach(sortedProducts) { product in
                                 AdCardView(coreUser: user, coreProduct: product)
                                     .padding(1)
                             }
@@ -78,30 +79,6 @@ struct MainMenuView: View {
         }//ZStack
     }
 }
-//    func userDetailsText(user: CoreUser) -> String {
-//        var text = "User Name: \(user.name ?? "Unknown User")\n"
-//
-//        if let addedProducts = user.addedProducts?.allObjects as? [CoreProduct], !addedProducts.isEmpty {
-//            text += "Added Products:\n"
-//            for product in addedProducts {
-//                text += "- \(product.name ?? "Unknown Product")\n"
-//                text += "- \(product.price)\n"
-//                text += "- \(product.info ?? "Unknown Product")\n"
-//                text += "- \(product.location ?? "Unknown Product")\n"
-//                text += "- \(product.typeOfSale ?? "Unknown Product")\n"
-//            }
-//        }
-//
-//        if let addedFavorites = user.addedFavorites?.allObjects as? [CoreProduct], !addedFavorites.isEmpty {
-//            text += "Added Favorites:\n"
-//            for favorite in addedFavorites {
-//                text += "- \(favorite.name ?? "Unknown Favorite")\n"
-//            }
-//        }
-//
-//        return text
-//    }
-
 
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
@@ -113,8 +90,3 @@ struct MainMenuView_Previews: PreviewProvider {
             .environmentObject(viewModel)
     }
 }
-
-
-
-
-
