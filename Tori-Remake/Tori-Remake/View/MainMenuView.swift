@@ -29,7 +29,7 @@ struct MainMenuView: View {
                     ForEach(viewModel.users) { user in
                         if let addedProducts = user.addedProducts?.allObjects as? [CoreProduct], !addedProducts.isEmpty {
                             let sortedProducts = addedProducts.sorted { $0.postingDate! < $1.postingDate!}
-                            ForEach(sortedProducts) { product in
+                            ForEach(sortedProducts.filter { searchText.isEmpty ? true : $0.name?.localizedCaseInsensitiveContains(searchText) ?? false }) { product in
                                 AdCardView(coreUser: user, coreProduct: product)
                                     .padding(1)
                             }
