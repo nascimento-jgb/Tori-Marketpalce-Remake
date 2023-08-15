@@ -59,7 +59,9 @@ class MainMenuViewModel: ObservableObject {
         }
     }
 
-    func 
+    func createProductsScrollView(categoryStatus: Binding<String>, searchText: Binding<String>) -> some View {
+        ProductsScrollView(viewModel: self, categoryStatus: categoryStatus, searchText: searchText)
+    }
 
 }
 

@@ -32,14 +32,15 @@ struct AdCardView: View {
                         Image(coreProduct.imageInfo ?? "")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 180, height: 200)
+                            .frame(width: 200, height: 180)
                             .padding(.leading, 1)
                             .contentShape(Rectangle())
 
                         VStack{
                             HStack{
                                 Text(coreProduct.name ?? "")
-                                    .padding(.leading, -5)
+                                    .padding(.leading, -15)
+                                    .padding(.top, -40)
                                     .font(.title2)
                                     .padding(1)
                                     .bold()
@@ -48,6 +49,7 @@ struct AdCardView: View {
                                 
                                 Image(systemName: "heart")
                                     .padding(.trailing, 2)
+                                    .padding(.top, -37)
                                     .font(.title3)
                                     .padding(1)
                             }
@@ -57,26 +59,32 @@ struct AdCardView: View {
                                 
                                 HStack{
                                     Image(systemName: "mappin.and.ellipse")
+                                        .font(.system(size: 13))
                                     Text(coreProduct.location ?? "")
+                                        .font(.system(size: 16))
                                 }
+                                .padding(.top, -15)
                                 .padding(1)
                                 
                                 HStack {
                                     Image(systemName: "calendar")
+                                        .font(.system(size: 13))
                                     Text(dateFormatter.string(from: coreProduct.postingDate!))
+                                        .font(.system(size: 16))
                                 }
                                 
                             }
                             .padding(.leading, -95)
                             .font(.title3)
                             .padding(5)
+                            .frame(width: 60)
                             
                             HStack{
                                 Spacer ()
                                 Text("$ \(String(format: "%.2f", coreProduct.price ))")
                                     .font(.system(size: 18, weight: .semibold))
-                                    .padding(.trailing, 20)
-                                    .padding(.top, -15)
+                                    .padding(.trailing, 15)
+                                    .padding(.bottom, -25)
                                 
                             }
                         }

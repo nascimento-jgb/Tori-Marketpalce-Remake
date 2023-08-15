@@ -23,24 +23,9 @@ struct MainMenuView: View {
     var body: some View {
         ZStack {
             VStack{
-                
                 viewModel.categorySelectionHeaderView(categoryStatus: $categoryStatus)
-                ScrollView
-                {
-                    Spacer()
-                    ForEach(viewModel.users) { user in
-                        if let addedProducts = user.addedProducts?.allObjects as? [CoreProduct], !addedProducts.isEmpty {
-                            let sortedProducts = addedProducts.sorted { $0.postingDate! < $1.postingDate!}
-                            ForEach(sortedProducts.filter { product in
-                                (categoryStatus.isEmpty || product.category == categoryStatus) &&
-                                (searchText.isEmpty || product.name?.localizedCaseInsensitiveContains(searchText) ?? false)
-                            }) { product in
-                                AdCardView(coreUser: user, coreProduct: product)
-                                    .padding(1)
-                            }
-                        }
-                    }
-                }
+                
+                viewModel.createProductsScrollView(categoryStatus: $categoryStatus, searchText: $searchText)
                 
                 VStack {
                     Image(systemName: "chevron.compact.up")
@@ -55,7 +40,7 @@ struct MainMenuView: View {
                     
                     HStack {
                         Image(systemName: "list.bullet.indent")
-                            .foregroundColor(.gray)
+                            .foregroundColor(showMenu ? Constants.Colors.primaryColor : .black)
                             .padding(.leading, 2)
                         
                         TextField("Search for an Item", text: $searchText)
@@ -69,7 +54,7 @@ struct MainMenuView: View {
                             .padding(.horizontal, 8)
                         
                         Image(systemName: "person")
-                            .foregroundColor(Constants.Colors.primaryColor)
+                            .foregroundColor(showMenu ? .black : Constants.Colors.primaryColor)
                             .padding(.trailing, 2)
                     }
                     .padding()

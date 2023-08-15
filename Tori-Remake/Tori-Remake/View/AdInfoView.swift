@@ -113,6 +113,7 @@ struct AdInfoView: View {
 
                         Text("Information of the seller:")
                             .font(.title3.weight(.semibold))
+                            .padding(.top, 3)
                             .padding(1)
      
                         Text(coreUser.name ?? "")
@@ -128,9 +129,12 @@ struct AdInfoView: View {
                     })
                     {
                         HStack {
+                            Spacer()
                             Text("Show all adds")
                                 .underline()
+                                .padding(.horizontal, 10)
                             Image(systemName: "arrow.up.left.and.arrow.down.right")
+                            Spacer()
                         }
                         .foregroundColor(.black)
                        
@@ -205,30 +209,33 @@ struct BackButton: View {
 }
 
 
-//struct AdInfoView_Previews: PreviewProvider {
-//
-//    @ObservedObject var coreProduct: CoreProduct
-//    @ObservedObject var coreUser: CoreUser
-//
-//    static var previews: some View {
-//        //        let user1 = User(id: UUID(),
-//        //                         name: "John Doe",
-//        //                         accountCreationDate: Date(),
-//        //                         listOfAdds: [
-//        //                            Product(id: UUID(),
-//        //                                    name: "iPhone 13",
-//        //                                    price: 799.99,
-//        //                                    imageUrl: "Shirt",
-//        //                                    location: "Helsinki",
-//        //                                    postingDate: Date(),
-//        //                                    category: "Electronics",
-//        //                                    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed sit amet sollicitudin quam. Vivamus euismod arcu sed erat fermentum, vel interdum neque pharetra. Fusce consequat nisl eget lectus hendrerit lacinia. Quisque fringilla turpis eu velit tincidunt, et hendrerit sapien ultricies. Ut scelerisque lorem ut ante accumsan, id volutpat urna cursus. Suspendisse eget eros non lectus mattis mattis. Proin rhoncus elit in dui tristique viverra. Aenean ac justo in justo interdum feugiat a a magna. Donec auctor, ligula in consectetur tincidunt, nunc tellus elementum libero, eu efficitur nulla purus vel augue.",
-//        //                                    typeOfSale: "For Sale",
-//        //                                    size: "No Size"),
-//        //                         ],
-//        //                         listOfFavorites: [],
-//        //                         listOfMessages: [])
-//
-//        AdInfoView()
-//    }
-//}
+struct AdInfoView_Previews: PreviewProvider {
+    
+        static var previews: some View {
+            let coreDataManager = CoreDataManager.shared
+            
+            let context = coreDataManager.managedObjectContext
+            
+            let user = CoreUser(context: context)
+            user.id = UUID()
+            user.name = "John Doe"
+            user.accountCreationDate = Date()
+            
+            let product = CoreProduct(context: context)
+            product.id = UUID()
+            product.name = "iPhone 13"
+            product.price = 799.99
+            product.imageInfo = "Shirt"
+            product.location = "Helsinki"
+            product.postingDate = Date()
+            product.category = "Electronics"
+            product.info = "Latest iPhone model Latest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone modelLatest iPhone model"
+            product.typeOfSale = "For Sale"
+            product.size = "No Size"
+            
+            user.addToAddedProducts(product)
+            
+            return AdInfoView(coreUser: user, coreProduct: product)
+                .environment(\.managedObjectContext, CoreDataManager.shared.managedObjectContext)
+        }
+    }
