@@ -9,11 +9,15 @@ import SwiftUI
 
 struct FiltersSideMenu: View {
     
-    @State private var selectedFilterCategory = "Newest"
+    
     @State private var showFilteredMenu = false
-    @State private var selectedTypeOfSale = "For Sale"
     @State private var showTypeOfSaleMenu = false
-    @State private var locationSearchBar: String = ""
+    
+    @Binding var selectedFilterCategory: String
+    @Binding var selectedTypeOfSale: String
+    @Binding var minProductValue: String
+    @Binding var maxProductValue: String
+    @Binding var locationSearchBar: String
     
     var body: some View {
         
@@ -164,7 +168,7 @@ struct FiltersSideMenu: View {
                         .padding(.top, 25)
                     
                     HStack{
-                        TextField("Min", text: $locationSearchBar)
+                        TextField("Min", text: $minProductValue)
                             .padding(.leading, 35)
                             .background(
                                 RoundedRectangle(cornerRadius: 25)
@@ -180,7 +184,7 @@ struct FiltersSideMenu: View {
                         
                         Spacer()
                         
-                        TextField("Max", text: $locationSearchBar)
+                        TextField("Max", text: $maxProductValue)
                             .padding(.leading, 35)
                             .background(
                                 RoundedRectangle(cornerRadius: 25)
@@ -226,8 +230,20 @@ struct FiltersSideMenu: View {
     }
 }
 
-struct FiltersSideMenu_Previews: PreviewProvider {
-    static var previews: some View {
-        FiltersSideMenu()
-    }
-}
+//struct FiltersSideMenu_Previews: PreviewProvider {
+//    @State static private var selectedFilterCategory: String = "Newest"
+//    @State static private var selectedTypeOfSale: String = "For Sale"
+//    @State static private var minProductValue: String = ""
+//    @State static private var maxProductValue: String = ""
+//    @State static private var locationSearchBar: String = ""
+//
+//    static var previews: some View {
+//        FiltersSideMenu(
+//                                selectedFilterCategory: .constant("Category"),
+//                                selectedTypeOfSale: .constant("Sale"),
+//                                minProductValue: .constant("0"),
+//                                maxProductValue: .constant("100"),
+//                                locationSearchBar: .constant("Location")
+//                                )
+//    }
+//}

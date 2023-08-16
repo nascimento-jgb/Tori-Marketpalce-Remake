@@ -69,7 +69,7 @@ let user2 = User(id: UUID(),
                             category: "Other",
                             info: "Soft cotton t-shirt",
                             typeOfSale: "For Sale",
-                            size: "M"),
+                            size: "size M"),
                  ],
                  listOfFavorites: [])
 
