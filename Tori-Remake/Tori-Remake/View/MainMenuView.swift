@@ -16,6 +16,7 @@ struct MainMenuView: View {
     @State private var searchText = ""
     @State private var categoryStatus = ""
     @State private var isProfileOpen = false
+    @State private var isCategoryFiltersOpen = false
     
     init(viewModel: MainMenuViewModel) {
         self.viewModel = viewModel
@@ -28,6 +29,11 @@ struct MainMenuView: View {
                     Constants.Colors.primaryColor.ignoresSafeArea().opacity(0.1)
                     ProfileSideMenu()
                 }
+            
+            if isCategoryFiltersOpen{
+                Constants.Colors.primaryColor.ignoresSafeArea().opacity(0.1)
+                FiltersSideMenu()
+            }
             ZStack {
                 
                 VStack{
@@ -50,6 +56,11 @@ struct MainMenuView: View {
                             Image(systemName: "list.bullet.indent")
                                 .foregroundColor(showMenu ? Constants.Colors.primaryColor : .black)
                                 .padding(.leading, 2)
+                                .onTapGesture {
+                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                        isCategoryFiltersOpen.toggle()
+                                    }
+                                }
                             
                             TextField("Search for an Item", text: $searchText)
                                 .padding(.vertical, 12)
@@ -86,6 +97,11 @@ struct MainMenuView: View {
             .offset(x: isProfileOpen ? -245 : 0)
             .scaleEffect(isProfileOpen ? 0.9 : 1)
             .ignoresSafeArea(.all, edges: isProfileOpen ? .all : .init())
+            //Same checks but for the other button
+            .rotation3DEffect(.degrees(isCategoryFiltersOpen ? -30 : 0), axis: (x: 0, y: 1, z: 0))
+            .offset(x: isCategoryFiltersOpen ? 245 : 0)
+            .scaleEffect(isCategoryFiltersOpen  ? 0.9 : 1)
+            
         }
     }
 }

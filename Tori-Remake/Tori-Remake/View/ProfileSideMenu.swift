@@ -11,6 +11,7 @@ struct ProfileSideMenu: View {
     
     @State var selectedMenu: SelectedMenuItem = .home
     @State var isDarkMode = false
+    
     var body: some View {
         VStack{
         
@@ -78,18 +79,18 @@ struct ProfileSideMenu: View {
 //                    .customFont()
                 Toggle("", isOn: $isDarkMode)
                     .toggleStyle(SwitchToggleStyle(tint: Constants.Colors.primaryColor))
-                    .padding(.trailing, 40)
+                    .padding(.trailing, 25)
             }
             
             Spacer()
             
         }
         .foregroundColor(.black)
-        .frame(maxWidth: 288, maxHeight: .infinity)
+        .frame(maxWidth: 278, maxHeight: .infinity)
         .background(.white)
         .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
         .frame(maxWidth: .infinity, alignment: .trailing)
-        .padding(.horizontal, -18)
+        .padding(.horizontal, -5)
     }
 }
 

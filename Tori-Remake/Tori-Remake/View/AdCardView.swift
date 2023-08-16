@@ -26,15 +26,15 @@ struct AdCardView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .shadow(radius: 5)
-                        .frame(width: 400, height: 180)
+                        .frame(width: 375, height: 180)
                     
                     HStack{
                         Image(coreProduct.imageInfo ?? "")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 200, height: 180)
-                            .padding(.leading, 1)
-                            .contentShape(Rectangle())
+                            .frame(width: 210, height: 179)
+                            .padding(.leading, -8)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
 
                         VStack{
                             HStack{

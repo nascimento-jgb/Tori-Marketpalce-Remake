@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileMenuRow: View {
+    
     var item: MenuItem
     @Binding var selectedMenu: SelectedMenuItem
     
@@ -26,7 +27,7 @@ struct ProfileMenuRow: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(10)
         .background(
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
+            RoundedRectangle(cornerRadius: 5, style: .continuous)
                 .fill(.white)
                 .frame(maxWidth: selectedMenu == item.menu ? .infinity : 0)
                 .frame(maxWidth: .infinity, alignment: .leading))
