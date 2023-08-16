@@ -7,26 +7,30 @@
 
 import SwiftUI
 
-struct MenuRowProfile: View {
+struct ProfileMenuRow: View {
     var item: MenuItem
     @Binding var selectedMenu: SelectedMenuItem
     
     var body: some View {
         HStack{
             Image(systemName: item.icon)
-                .font(.system(size: 32))
+                .font(.system(size: 25))
                 .opacity(0.6)
+                .frame(alignment: .leading)
+                .padding(.horizontal, 10)
+            
             Text(item.text)
             //                    .customFont()
+            Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(10)
         .background(
-            RoundedRectangle(cornerRadius: 15, style: .continuous)
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(.white)
                 .frame(maxWidth: selectedMenu == item.menu ? .infinity : 0)
                 .frame(maxWidth: .infinity, alignment: .leading))
-        .background(Constants.Colors.primaryColor)
+        .background(Constants.Colors.primaryColor).opacity(0.9)
         .onTapGesture {
             withAnimation(.timingCurve(0.2, 0.8, 0.2, 1)){
                 selectedMenu = item.menu
@@ -35,8 +39,8 @@ struct MenuRowProfile: View {
     }
 }
 
-struct MenuRowProfile_Previews: PreviewProvider {
+struct ProfileMenuRow_Previews: PreviewProvider {
     static var previews: some View {
-        MenuRowProfile(item: menuItems[0], selectedMenu: .constant(.home))
+        ProfileMenuRow(item: menuItems[0], selectedMenu: .constant(.home))
     }
 }

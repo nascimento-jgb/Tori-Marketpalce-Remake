@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SideMenuProfile: View {
+struct ProfileSideMenu: View {
     
     @State var selectedMenu: SelectedMenuItem = .home
     @State var isDarkMode = false
@@ -31,6 +31,7 @@ struct SideMenuProfile: View {
             }
             .padding()
             .padding(.leading, -45)
+            .background(Constants.Colors.primaryColor).opacity(0.9)
             
             Text("BROWSE")
 //               .customFont
@@ -44,7 +45,7 @@ struct SideMenuProfile: View {
                         .frame(height: 1)
                         .opacity(0.1)
                         .padding(.horizontal)
-                    MenuRowProfile(item: item, selectedMenu: $selectedMenu)
+                    ProfileMenuRow(item: item, selectedMenu: $selectedMenu)
                 }
             }
             .padding(8)
@@ -61,14 +62,14 @@ struct SideMenuProfile: View {
                         .frame(height: 1)
                         .opacity(0.1)
                         .padding(.horizontal)
-                    MenuRowProfile(item: item, selectedMenu: $selectedMenu)
+                    ProfileMenuRow(item: item, selectedMenu: $selectedMenu)
                 }
             }
             .padding(8)
             
             Spacer()
             
-            HStack(spacing: 14){
+            HStack(spacing: 5){
                 Image(systemName: menuItems3[0].icon)
                     .frame(width: 32, height: 32)
                     .opacity(0.6)
@@ -76,70 +77,27 @@ struct SideMenuProfile: View {
                 Text(menuItems3[0].text)
 //                    .customFont()
                 Toggle("", isOn: $isDarkMode)
-                    .padding(.trailing, 20)
+                    .toggleStyle(SwitchToggleStyle(tint: Constants.Colors.primaryColor))
+                    .padding(.trailing, 40)
             }
-//            VStack(alignment: .leading, spacing: 0){
-//                ForEach(menuItems3) { item in
-//                    Rectangle()
-//                        .frame(height: 1)
-//                        .opacity(0.1)
-//                        .padding(.horizontal)
-//                    MenuRowProfile(item: item, selectedMenu: $selectedMenu)
-//                }
-//            }
-//            .padding(8)
             
             Spacer()
             
         }
         .foregroundColor(.black)
         .frame(maxWidth: 288, maxHeight: .infinity)
-        .background(Constants.Colors.primaryColor).opacity(0.9)
+        .background(.white)
         .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
         .frame(maxWidth: .infinity, alignment: .trailing)
+        .padding(.horizontal, -18)
     }
 }
 
-struct SideMenuProfile_Previews: PreviewProvider {
+struct ProfileSideMenu_Previews: PreviewProvider {
     static var previews: some View {
-        SideMenuProfile()
+        ProfileSideMenu()
     }
 }
 
 
-struct MenuItem: Identifiable {
-    var id = UUID()
-    var text: String
-    var icon: String
-    var menu: SelectedMenuItem
-}
 
-var menuItems = [
-    MenuItem(text: "HOME", icon: "circle", menu: .home),
-    MenuItem(text: "FAVORITES", icon: "circle", menu: .favorites),
-    MenuItem(text: "MESSAGES", icon: "circle", menu: .messages),
-    MenuItem(text: "ADD NEW PRODUCT", icon: "circle", menu: .addNewProduct)
-]
-
-var menuItems2 = [
-    MenuItem(text: "CONFIGURATION", icon: "circle", menu: .configuration),
-    MenuItem(text: "SUPPORT", icon: "circle", menu: .support),
-    MenuItem(text: "ANALYTICS", icon: "circle", menu: .analytics)
-]
-
-var menuItems3 = [
-    MenuItem(text: "Dark Mode", icon: "circle", menu: .home)
-]
-
-
-
-enum SelectedMenuItem: String {
-    case home
-    case favorites
-    case messages
-    case addNewProduct
-    case analytics
-    case configuration
-    case support
-    case darkmode
-}
