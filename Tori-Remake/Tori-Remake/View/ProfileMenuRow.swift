@@ -19,6 +19,7 @@ struct ProfileMenuRow: View {
                 .opacity(0.6)
                 .frame(alignment: .leading)
                 .padding(.horizontal, 10)
+                
             
             Text(item.text)
             //                    .customFont()
@@ -28,10 +29,9 @@ struct ProfileMenuRow: View {
         .padding(10)
         .background(
             RoundedRectangle(cornerRadius: 5, style: .continuous)
-                .fill(.white)
+                .fill(Constants.Colors.primaryColor.opacity(0.6))
                 .frame(maxWidth: selectedMenu == item.menu ? .infinity : 0)
                 .frame(maxWidth: .infinity, alignment: .leading))
-        .background(Constants.Colors.primaryColor).opacity(0.9)
         .onTapGesture {
             withAnimation(.timingCurve(0.2, 0.8, 0.2, 1)){
                 selectedMenu = item.menu

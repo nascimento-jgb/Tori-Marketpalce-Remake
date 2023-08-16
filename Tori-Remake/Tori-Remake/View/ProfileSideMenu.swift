@@ -32,7 +32,7 @@ struct ProfileSideMenu: View {
             }
             .padding()
             .padding(.leading, -45)
-            .background(Constants.Colors.primaryColor).opacity(0.9)
+            .background(Constants.Colors.primaryColor).opacity(0.8)
             
             Text("BROWSE")
 //               .customFont
@@ -43,9 +43,10 @@ struct ProfileSideMenu: View {
             VStack(alignment: .leading, spacing: 0){
                 ForEach(menuItems) { item in
                     Rectangle()
-                        .frame(height: 1)
+                        .frame(height: 2)
                         .opacity(0.1)
                         .padding(.horizontal)
+                        .foregroundColor(Constants.Colors.primaryColor).opacity(0.9)
                     ProfileMenuRow(item: item, selectedMenu: $selectedMenu)
                 }
             }
@@ -63,6 +64,7 @@ struct ProfileSideMenu: View {
                         .frame(height: 1)
                         .opacity(0.1)
                         .padding(.horizontal)
+                        .foregroundColor(Constants.Colors.primaryColor).opacity(0.9)
                     ProfileMenuRow(item: item, selectedMenu: $selectedMenu)
                 }
             }
