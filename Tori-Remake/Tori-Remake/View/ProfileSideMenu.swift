@@ -22,11 +22,11 @@ struct ProfileSideMenu: View {
                     .background(.white.opacity(0.2))
                     .mask(Circle())
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Joao Nascimento")
-                    //            .customFont()
+                    Text("JOAO NASCIMENTO")
+                        .customFont(.body)
                     Text("Partners since 2021")
+                        .customFont(.headline)
                         .opacity(0.7)
-                    //            .customFont()
                 }
                 Spacer()
             }
@@ -35,7 +35,7 @@ struct ProfileSideMenu: View {
             .background(Constants.Colors.primaryColor).opacity(0.8)
             
             Text("BROWSE")
-//               .customFont
+                .customFont(.body)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 32)
                 .padding(.top, 25)
@@ -53,7 +53,7 @@ struct ProfileSideMenu: View {
             .padding(8)
             
             Text("PROFILE")
-//               .customFont
+                .customFont(.body)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 32)
                 .padding(.top, 25)
@@ -78,7 +78,7 @@ struct ProfileSideMenu: View {
                     .opacity(0.6)
                     .padding(.leading, 20)
                 Text(menuItems3[0].text)
-//                    .customFont()
+                    .customFont(.headline)
                 Toggle("", isOn: $isDarkMode)
                     .toggleStyle(SwitchToggleStyle(tint: Constants.Colors.primaryColor))
                     .padding(.trailing, 25)

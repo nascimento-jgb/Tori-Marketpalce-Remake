@@ -49,13 +49,13 @@ struct AdInfoView: View {
                 VStack{
                     
                     Text(coreProduct.name ?? "")
-                            .font(.title).bold()
+                        .customFont(.title).bold()
                             .padding(.leading, -160)
                             .padding(.bottom, 2)
                             .padding(.top, 2)
                     
-                    Text("$ \(String(format: "%.2f", coreProduct.price))")
-                          .font(.title2.weight(.semibold))
+                    Text("€ \(String(format: "%.2f", coreProduct.price))")
+                        .customFont(.title3).bold()
                             .padding(.leading, -160)
                             .padding(.bottom, 12)
                     
@@ -65,7 +65,7 @@ struct AdInfoView: View {
                             Image(systemName: "calendar")
                                 .foregroundColor(Constants.Colors.primaryColor)
                             Text(dateFormatter.string(from: coreProduct.postingDate!))
-                                .font(.title3)
+                                .customFont(.title3)
                                 .padding(.bottom, 2)
                         }
                     
@@ -75,7 +75,7 @@ struct AdInfoView: View {
                             Image(systemName: "mappin.and.ellipse")
                                 .foregroundColor(Constants.Colors.primaryColor)
                             Text(coreProduct.location ?? "")
-                                .font(.title3)
+                                .customFont(.title3)
                                 .padding(.bottom, 2)
                         }
                         .padding(.leading, -90)
@@ -86,7 +86,6 @@ struct AdInfoView: View {
                         HStack{
                             Text(coreProduct.category ?? "")
                                 .padding(.leading, 25)
-//                                .multilineTextAlignment(.center)
                             Spacer()
                             Image(systemName: "circle.fill")
                                 .font(.system(size: 4))
@@ -101,10 +100,11 @@ struct AdInfoView: View {
                             Text(coreProduct.size ?? "")
                                 .padding(.trailing, 25)
                         }
-                        .font(.title3.weight(.semibold))
+                        .customFont(.body).bold()
                         .padding(.bottom, 15)
                     
                     Text(coreProduct.info ?? "")
+                        .customFont(.body)
                         .multilineTextAlignment(.leading)
                         .padding(.leading, 25)
                         .padding(.trailing, 15)
@@ -112,15 +112,16 @@ struct AdInfoView: View {
                     
 
                         Text("Information of the seller:")
-                            .font(.title3.weight(.semibold))
+                            .customFont(.body).bold()
                             .padding(.top, 3)
                             .padding(1)
      
                         Text(coreUser.name ?? "")
-                            .font(.title2.weight(.regular))
+                            .customFont(.title2)
                             .multilineTextAlignment(.leading)
                     
                     Text("Account created in \(dateFormatter.string(from: coreUser.accountCreationDate!))")
+                            .customFont(.title3)
                             .multilineTextAlignment(.leading)
                             .padding(.bottom, 6)
                     
@@ -131,6 +132,7 @@ struct AdInfoView: View {
                         HStack {
                             Spacer()
                             Text("Show all adds")
+                                .customFont(.headline)
                                 .underline()
                                 .padding(.horizontal, 10)
                             Image(systemName: "arrow.up.left.and.arrow.down.right")
@@ -173,6 +175,7 @@ struct AdInfoView: View {
                                // Action for the new button
                     }) {
                         Text("Send Message")
+                            .customFont(.title3)
                             .frame(maxWidth: .infinity)
                             .frame(height: 45) // Adjust the height as needed
                             .background(Constants.Colors.primaryColor)

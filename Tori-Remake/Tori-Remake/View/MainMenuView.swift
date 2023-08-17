@@ -86,6 +86,7 @@ struct MainMenuView: View {
                                 }
                             
                             TextField("Search for an Item", text: $searchText)
+                                .customFont(.body)
                                 .padding(.vertical, 12)
                                 .padding(.leading, 8)
                                 .background(
@@ -94,6 +95,7 @@ struct MainMenuView: View {
                                         .shadow(radius: 3)
                                 )
                                 .padding(.horizontal, 8)
+                                
                             
                             Image(systemName: "person")
                                 .foregroundColor(showMenu ? .black : Constants.Colors.primaryColor)
@@ -105,6 +107,8 @@ struct MainMenuView: View {
                                 }
                         }
                         .padding()
+//                        .offset(y: scrollPosition > 100 ? 50 : 0) // Adjust the values as needed
+//                        .animation(.easeInOut)
                         
                         if showMenu {
                             CategoriesView(categoryStatus: $categoryStatus)
@@ -124,7 +128,6 @@ struct MainMenuView: View {
             .rotation3DEffect(.degrees(isCategoryFiltersOpen ? -30 : 0), axis: (x: 0, y: 1, z: 0))
             .offset(x: isCategoryFiltersOpen ? 245 : 0)
             .scaleEffect(isCategoryFiltersOpen  ? 0.9 : 1)
-            
         }
     }
 }

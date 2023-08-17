@@ -10,10 +10,10 @@ import Foundation
 enum Category: String, CaseIterable {
     case Electronics = "Electronics"
     case Vehicles = "Vehicles"
-    case Living = "Home and Living"
-    case Hobbies = "Leisure and Hobbies"
-    case Property = "Property and Rental"
-    case Services = "Services and Business"
+    case Living = "Home & Living"
+    case Hobbies = "Leisure & Hobbies"
+    case Property = "Property & Rental"
+    case Services = "Services & Business"
     case Other = "Other"
 }
 

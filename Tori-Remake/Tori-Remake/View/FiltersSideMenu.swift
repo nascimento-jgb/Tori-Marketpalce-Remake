@@ -33,7 +33,7 @@ struct FiltersSideMenu: View {
                             .background(.white.opacity(0.2))
                             .mask(Circle())
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("Joao Nascimento")
+                            Text("JOAO NASCIMENTO")
                             //            .customFont()
                             Text("Partners since 2021")
                                 .opacity(0.7)
@@ -48,7 +48,7 @@ struct FiltersSideMenu: View {
                 ScrollView{
                     
                     Text("Sorted by:")
-                    //               .customFont
+                        .customFont(.body)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 25)
                         .padding(.top, 25)
@@ -79,6 +79,7 @@ struct FiltersSideMenu: View {
                                 .overlay(
                                     HStack {
                                         Text(selectedFilter)
+                                            .customFont(.headline)
                                             .foregroundColor(.black)
                                         Image(systemName: "chevron.down")
                                             .foregroundColor(Constants.Colors.primaryColor.opacity(0.7))
@@ -93,12 +94,13 @@ struct FiltersSideMenu: View {
                     }
                     
                     Text("Location:")
-                    //               .customFont
+                        .customFont(.body)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 25)
                         .padding(.top, 25)
                     
                     TextField("Find in your area", text: $locationSearchBar)
+                        .customFont(.headline)
                         .padding(.leading, 25)
                         .background(
                             RoundedRectangle(cornerRadius: 25)
@@ -114,7 +116,7 @@ struct FiltersSideMenu: View {
                     
                     
                     Text("Type of sale:")
-                    //               .customFont
+                        .customFont(.body)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 25)
                         .padding(.top, 25)
@@ -149,6 +151,7 @@ struct FiltersSideMenu: View {
                                 .overlay(
                                     HStack {
                                         Text(selectedTypeOfSale)
+                                            .customFont(.headline)
                                             .foregroundColor(.black)
                                         Image(systemName: "chevron.down")
                                             .foregroundColor(Constants.Colors.primaryColor.opacity(0.7))
@@ -163,13 +166,14 @@ struct FiltersSideMenu: View {
                     }
                     
                     Text("Price Range:")
-                    //               .customFont
+                        .customFont(.body)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 25)
                         .padding(.top, 25)
                     
                     HStack{
                         TextField("Min", text: $minProductValue)
+                            .customFont(.headline)
                             .padding(.leading, 35)
                             .background(
                                 RoundedRectangle(cornerRadius: 25)
@@ -186,6 +190,7 @@ struct FiltersSideMenu: View {
                         Spacer()
                         
                         TextField("Max", text: $maxProductValue)
+                            .customFont(.headline)
                             .padding(.leading, 35)
                             .background(
                                 RoundedRectangle(cornerRadius: 25)
@@ -202,7 +207,7 @@ struct FiltersSideMenu: View {
                     .padding()
                     
                     Text("Aditional Filters:")
-                    //               .customFont
+                        .customFont(.body)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 25)
                         .padding(.top, 25)
@@ -222,6 +227,7 @@ struct FiltersSideMenu: View {
                                 .overlay(
                                     HStack {
                                         Text(categoryStatus.isEmpty ? "" : categoryStatus)
+                                            .customFont(.headline)
                                             .foregroundColor(.black)
                                         Image(systemName: "chevron.down")
                                             .foregroundColor(Constants.Colors.primaryColor.opacity(0.7))

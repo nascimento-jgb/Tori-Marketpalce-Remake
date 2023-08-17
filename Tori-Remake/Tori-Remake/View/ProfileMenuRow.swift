@@ -22,7 +22,7 @@ struct ProfileMenuRow: View {
                 
             
             Text(item.text)
-            //                    .customFont()
+                .customFont(.subheadline)
             Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .leading)

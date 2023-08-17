@@ -31,6 +31,7 @@ struct CategoriesView: View {
                             }
                             
                             Text(category.rawValue.capitalized)
+                                .customFont(.headline)
                                 .foregroundColor(.black)
                                 .font(.caption)
                             
