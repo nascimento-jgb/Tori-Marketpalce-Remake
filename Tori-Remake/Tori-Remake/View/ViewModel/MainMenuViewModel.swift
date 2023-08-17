@@ -61,11 +61,6 @@ class MainMenuViewModel: ObservableObject {
 
     func createProductsScrollView(categoryStatus: Binding<String>, searchText: Binding<String>, selectedFilter: Binding<String>, selectedTypeOfSale: Binding<String>, minProductValue: Binding<String>, maxProductValue: Binding<String>, locationSearchBar: Binding<String>) -> some View {
         ProductsScrollView(viewModel: self, categoryStatus: categoryStatus, searchText: searchText, selectedFilter: selectedFilter, selectedTypeOfSale: selectedTypeOfSale, minProductValue: minProductValue, maxProductValue: maxProductValue, locationSearchBar: locationSearchBar)
+        }
     }
-
-}
-
-
-
-
 

@@ -34,10 +34,10 @@ struct FiltersSideMenu: View {
                             .mask(Circle())
                         VStack(alignment: .leading, spacing: 2) {
                             Text("JOAO NASCIMENTO")
-                            //            .customFont()
+                                .customFont(.body)
                             Text("Partners since 2021")
+                                .customFont(.headline)
                                 .opacity(0.7)
-                            //            .customFont()
                         }
                         Spacer()
                     }

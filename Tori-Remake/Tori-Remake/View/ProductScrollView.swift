@@ -23,24 +23,22 @@ struct ProductsScrollView: View {
         ScrollView {
 
             Spacer()
-        
-            let sortedProducts = getProducts().sorted(by: dynamicSort)
             
-            ForEach(sortedProducts.filter { product in
-                (categoryStatus.isEmpty || product.category == categoryStatus) &&
-                (searchText.isEmpty || product.name?.localizedCaseInsensitiveContains(searchText) ?? false) &&
-                (locationSearchBar.isEmpty || product.location?.localizedCaseInsensitiveContains(locationSearchBar) ?? false) &&
-                (minProductValue.isEmpty || Int(product.price) > Int(minProductValue) ?? Int.min) &&
-                (maxProductValue.isEmpty || Int(product.price) < Int(maxProductValue) ?? Int.max) &&
-                (selectedTypeOfSale.isEmpty || product.typeOfSale == selectedTypeOfSale)
-            }) { product in
-                if let productOwner = user(for: product) {
+                let sortedProducts = getProducts().sorted(by: dynamicSort)
+                
+                ForEach(sortedProducts.filter { product in
+                    (categoryStatus.isEmpty || product.category == categoryStatus) &&
+                    (searchText.isEmpty || product.name?.localizedCaseInsensitiveContains(searchText) ?? false) &&
+                    (locationSearchBar.isEmpty || product.location?.localizedCaseInsensitiveContains(locationSearchBar) ?? false) &&
+                    (minProductValue.isEmpty || Int(product.price) > Int(minProductValue) ?? Int.min) &&
+                    (maxProductValue.isEmpty || Int(product.price) < Int(maxProductValue) ?? Int.max) &&
+                    (selectedTypeOfSale.isEmpty || product.typeOfSale == selectedTypeOfSale)
+                }) { product in
+                    if let productOwner = user(for: product) {
                         AdCardView(coreUser: productOwner, coreProduct: product)
                             .padding(1)
                     }
-
-            }
-
+                }
         }
     }
     

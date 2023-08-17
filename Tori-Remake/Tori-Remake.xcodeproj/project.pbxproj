@@ -14,6 +14,9 @@
 		B9164CA12A8CA28B00FFDD33 /* ProfileMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9164CA02A8CA28B00FFDD33 /* ProfileMenuData.swift */; };
 		B9164CA32A8CC4D300FFDD33 /* FiltersSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9164CA22A8CC4D300FFDD33 /* FiltersSideMenu.swift */; };
 		B9164CA62A8DE13600FFDD33 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9164CA52A8DE13600FFDD33 /* CustomFont.swift */; };
+		B9164CA82A8E28B600FFDD33 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9164CA72A8E28B600FFDD33 /* SignInView.swift */; };
+		B9164CAA2A8E3C1700FFDD33 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9164CA92A8E3C1700FFDD33 /* CustomTextField.swift */; };
+		B9164CAC2A8E3EF600FFDD33 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9164CAB2A8E3EF600FFDD33 /* Extensions.swift */; };
 		B93D64AE2A89278100780ABD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D64AD2A89278100780ABD /* Category.swift */; };
 		B93D64B12A89F8E600780ABD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D64B02A89F8E600780ABD /* UserProfile.swift */; };
 		B93D64B52A8A093100780ABD /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D64B42A8A093100780ABD /* UsersData.swift */; };
@@ -40,6 +43,9 @@
 		B9164CA22A8CC4D300FFDD33 /* FiltersSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersSideMenu.swift; sourceTree = "<group>"; };
 		B9164CA42A8DDFF000FFDD33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B9164CA52A8DE13600FFDD33 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		B9164CA72A8E28B600FFDD33 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		B9164CA92A8E3C1700FFDD33 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B9164CAB2A8E3EF600FFDD33 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B93D64AD2A89278100780ABD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B93D64B02A89F8E600780ABD /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		B93D64B42A8A093100780ABD /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 				B9164C9C2A8BD37300FFDD33 /* ProfileSideMenu.swift */,
 				B9164C9E2A8C9CE200FFDD33 /* ProfileMenuRow.swift */,
 				B9164CA22A8CC4D300FFDD33 /* FiltersSideMenu.swift */,
+				B9164CA72A8E28B600FFDD33 /* SignInView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,9 +163,11 @@
 		B9E7AE362A87D0B4006F323E /* Styling */ = {
 			isa = PBXGroup;
 			children = (
+				B9164CA92A8E3C1700FFDD33 /* CustomTextField.swift */,
 				B95620122A88D21B003C14C0 /* Constants.swift */,
 				B9164CA52A8DE13600FFDD33 /* CustomFont.swift */,
 				B9E7AE2F2A87C91D006F323E /* Grotesk-Font */,
+				B9164CAB2A8E3EF600FFDD33 /* Extensions.swift */,
 			);
 			path = Styling;
 			sourceTree = "<group>";
@@ -253,9 +262,12 @@
 				B9164C9B2A8BBAD200FFDD33 /* ProductScrollView.swift in Sources */,
 				B9E7AE292A87C7D2006F323E /* Tori_Remake.xcdatamodeld in Sources */,
 				B9164CA62A8DE13600FFDD33 /* CustomFont.swift in Sources */,
+				B9164CA82A8E28B600FFDD33 /* SignInView.swift in Sources */,
 				B9E7AE1D2A87C7D1006F323E /* Tori_RemakeApp.swift in Sources */,
 				B93D64AE2A89278100780ABD /* Category.swift in Sources */,
+				B9164CAC2A8E3EF600FFDD33 /* Extensions.swift in Sources */,
 				B9164C992A8AAFB300FFDD33 /* MainMenuViewModel.swift in Sources */,
+				B9164CAA2A8E3C1700FFDD33 /* CustomTextField.swift in Sources */,
 				B93D64B52A8A093100780ABD /* UsersData.swift in Sources */,
 				B93D64B12A89F8E600780ABD /* UserProfile.swift in Sources */,
 				B93D64B72A8A292000780ABD /* CoreDataManager.swift in Sources */,

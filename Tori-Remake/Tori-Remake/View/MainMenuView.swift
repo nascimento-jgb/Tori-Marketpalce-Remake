@@ -21,7 +21,6 @@ struct MainMenuView: View {
     
     @State private var showMenu = false
     @State private var searchText = ""
-//    @State private var categoryStatus = ""
     @State private var isProfileOpen = false
     @State private var isCategoryFiltersOpen = false
     
@@ -44,7 +43,7 @@ struct MainMenuView: View {
         }
     
     
-    var body: some View {
+ var body: some View {
         
         ZStack {
                 if isProfileOpen {
@@ -63,10 +62,10 @@ struct MainMenuView: View {
                     viewModel.categorySelectionHeaderView(categoryStatus: $categoryStatus)
                     
                     viewModel.createProductsScrollView(categoryStatus: $categoryStatus, searchText: $searchText, selectedFilter: $selectedFilter, selectedTypeOfSale: $selectedTypeOfSale, minProductValue: $minProductValue, maxProductValue: $maxProductValue, locationSearchBar: $locationSearchBar)
-                    
+                        
                     VStack {
                         Image(systemName: "chevron.compact.up")
-                            .foregroundColor(.gray)
+                            .foregroundColor(.black)
                             .padding(.trailing, 10)
                             .padding(1)
                             .onTapGesture {
@@ -107,15 +106,16 @@ struct MainMenuView: View {
                                 }
                         }
                         .padding()
-//                        .offset(y: scrollPosition > 100 ? 50 : 0) // Adjust the values as needed
-//                        .animation(.easeInOut)
+                  
                         
                         if showMenu {
                             CategoriesView(categoryStatus: $categoryStatus)
                                 .padding(2)
                                 .animation(.spring().delay(2), value: showMenu)
                         }
+                        
                     }//VStack
+                    
                 }//VStack
                 
             }//ZStack
