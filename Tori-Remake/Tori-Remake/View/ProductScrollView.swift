@@ -13,7 +13,7 @@ struct ProductsScrollView: View {
     @Binding var categoryStatus: String
     @Binding var searchText: String
 
-    @Binding var selectedFilterCategory: String
+    @Binding var selectedFilter: String
     @Binding var selectedTypeOfSale: String
     @Binding var minProductValue: String
     @Binding var maxProductValue: String
@@ -45,7 +45,7 @@ struct ProductsScrollView: View {
     }
     
     private func dynamicSort(_ item1: CoreProduct, _ item2: CoreProduct) -> Bool {
-        switch selectedFilterCategory {
+        switch selectedFilter {
         case "Newest":
             return item1.postingDate ?? Date() > item2.postingDate ?? Date()
         case "Oldest":

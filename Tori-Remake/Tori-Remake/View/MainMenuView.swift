@@ -12,32 +12,35 @@ struct MainMenuView: View {
     
     @ObservedObject private var viewModel: MainMenuViewModel
     
-    @Binding private var selectedFilterCategory: String
+    @Binding private var selectedFilter: String
     @Binding private var selectedTypeOfSale: String
     @Binding private var minProductValue: String
     @Binding private var maxProductValue: String
     @Binding private var locationSearchBar: String
+    @Binding private var categoryStatus: String
     
     @State private var showMenu = false
     @State private var searchText = ""
-    @State private var categoryStatus = ""
+//    @State private var categoryStatus = ""
     @State private var isProfileOpen = false
     @State private var isCategoryFiltersOpen = false
     
     init(
             viewModel: MainMenuViewModel,
-            selectedFilterCategory: Binding<String>,
+            selectedFilter: Binding<String>,
             selectedTypeOfSale: Binding<String>,
             minProductValue: Binding<String>,
             maxProductValue: Binding<String>,
-            locationSearchBar: Binding<String>
+            locationSearchBar: Binding<String>,
+            categoryStatus: Binding<String>
         ) {
             self.viewModel = viewModel
-            _selectedFilterCategory = selectedFilterCategory
+            _selectedFilter = selectedFilter
             _selectedTypeOfSale = selectedTypeOfSale
             _minProductValue = minProductValue
             _maxProductValue = maxProductValue
             _locationSearchBar = locationSearchBar
+            _categoryStatus = categoryStatus
         }
     
     
@@ -51,7 +54,7 @@ struct MainMenuView: View {
             
                 if isCategoryFiltersOpen{
                     Constants.Colors.primaryColor.ignoresSafeArea().opacity(0.1)
-                    FiltersSideMenu(selectedFilterCategory: $selectedFilterCategory, selectedTypeOfSale: $selectedTypeOfSale, minProductValue: $minProductValue, maxProductValue: $maxProductValue, locationSearchBar: $locationSearchBar)
+                    FiltersSideMenu(selectedFilter: $selectedFilter, selectedTypeOfSale: $selectedTypeOfSale, minProductValue: $minProductValue, maxProductValue: $maxProductValue, locationSearchBar: $locationSearchBar, categoryStatus: $categoryStatus)
                 }
             
             ZStack {
@@ -59,7 +62,7 @@ struct MainMenuView: View {
                 VStack{
                     viewModel.categorySelectionHeaderView(categoryStatus: $categoryStatus)
                     
-                    viewModel.createProductsScrollView(categoryStatus: $categoryStatus, searchText: $searchText, selectedFilterCategory: $selectedFilterCategory, selectedTypeOfSale: $selectedTypeOfSale, minProductValue: $minProductValue, maxProductValue: $maxProductValue, locationSearchBar: $locationSearchBar)
+                    viewModel.createProductsScrollView(categoryStatus: $categoryStatus, searchText: $searchText, selectedFilter: $selectedFilter, selectedTypeOfSale: $selectedTypeOfSale, minProductValue: $minProductValue, maxProductValue: $maxProductValue, locationSearchBar: $locationSearchBar)
                     
                     VStack {
                         Image(systemName: "chevron.compact.up")
@@ -132,11 +135,12 @@ struct MainMenuView_Previews: PreviewProvider {
         let viewModel = MainMenuViewModel()
         
         return MainMenuView(viewModel: viewModel,
-                            selectedFilterCategory: .constant("Category"),
+                            selectedFilter: .constant("Category"),
                             selectedTypeOfSale: .constant("Sale"),
                             minProductValue: .constant("0"),
                             maxProductValue: .constant("100"),
-                            locationSearchBar: .constant("Location")
+                            locationSearchBar: .constant("Location"),
+                            categoryStatus: .constant("None")
                             )
             .environment(\.managedObjectContext, context)
             .environmentObject(viewModel)

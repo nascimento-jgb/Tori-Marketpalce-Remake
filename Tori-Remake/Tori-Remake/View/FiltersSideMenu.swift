@@ -13,11 +13,12 @@ struct FiltersSideMenu: View {
     @State private var showFilteredMenu = false
     @State private var showTypeOfSaleMenu = false
     
-    @Binding var selectedFilterCategory: String
+    @Binding var selectedFilter: String
     @Binding var selectedTypeOfSale: String
     @Binding var minProductValue: String
     @Binding var maxProductValue: String
     @Binding var locationSearchBar: String
+    @Binding var categoryStatus: String
     
     var body: some View {
         
@@ -55,16 +56,16 @@ struct FiltersSideMenu: View {
                     HStack {
                         Menu {
                             Button("Newest") {
-                                selectedFilterCategory = "Newest"
+                                selectedFilter = "Newest"
                             }
                             Button("Oldest") {
-                                selectedFilterCategory = "Oldest"
+                                selectedFilter = "Oldest"
                             }
                             Button("Cheapest") {
-                                selectedFilterCategory = "Cheapest"
+                                selectedFilter = "Cheapest"
                             }
                             Button("Expensier") {
-                                selectedFilterCategory = "Expensier"
+                                selectedFilter = "Expensier"
                             }
                         } label: {
                             RoundedRectangle(cornerRadius: 25)
@@ -77,7 +78,7 @@ struct FiltersSideMenu: View {
                                 }
                                 .overlay(
                                     HStack {
-                                        Text(selectedFilterCategory)
+                                        Text(selectedFilter)
                                             .foregroundColor(.black)
                                         Image(systemName: "chevron.down")
                                             .foregroundColor(Constants.Colors.primaryColor.opacity(0.7))
@@ -200,23 +201,39 @@ struct FiltersSideMenu: View {
                     }
                     .padding()
                     
-                    Text("Filters Subcategories:")
+                    Text("Aditional Filters:")
                     //               .customFont
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 25)
                         .padding(.top, 25)
                     
-//                    TextField("Type here your search area", text: "")
-//                        .padding(.vertical, 4)
-//                        .background(
-//                            RoundedRectangle(cornerRadius: 10)
-//                                .fill(Color.white)
-//                                .shadow(radius: 3)
-//                        )
-//                        .padding(8)
-                    
-                    
-//                    Spacer()
+                    HStack {
+                        Menu {
+                            
+                        } label: {
+                            RoundedRectangle(cornerRadius: 25)
+                                .frame(width: 250, height: 30)
+                                .foregroundColor(.white)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(Constants.Colors.primaryColor.opacity(0.7), lineWidth: 1)
+                                        .shadow(radius: 3)
+                                }
+                                .overlay(
+                                    HStack {
+                                        Text(categoryStatus.isEmpty ? "" : categoryStatus)
+                                            .foregroundColor(.black)
+                                        Image(systemName: "chevron.down")
+                                            .foregroundColor(Constants.Colors.primaryColor.opacity(0.7))
+                                    }
+                                    .padding(.horizontal)
+                                    .onTapGesture {
+                                        showTypeOfSaleMenu.toggle()
+                                    }
+                                )
+                        }
+                        .padding(3)
+                    }
                 }
                 
             }
@@ -230,20 +247,21 @@ struct FiltersSideMenu: View {
     }
 }
 
-//struct FiltersSideMenu_Previews: PreviewProvider {
-//    @State static private var selectedFilterCategory: String = "Newest"
-//    @State static private var selectedTypeOfSale: String = "For Sale"
-//    @State static private var minProductValue: String = ""
-//    @State static private var maxProductValue: String = ""
-//    @State static private var locationSearchBar: String = ""
-//
-//    static var previews: some View {
-//        FiltersSideMenu(
-//                                selectedFilterCategory: .constant("Category"),
-//                                selectedTypeOfSale: .constant("Sale"),
-//                                minProductValue: .constant("0"),
-//                                maxProductValue: .constant("100"),
-//                                locationSearchBar: .constant("Location")
-//                                )
-//    }
-//}
+struct FiltersSideMenu_Previews: PreviewProvider {
+    @State static private var selectedFilterCategory: String = "Newest"
+    @State static private var selectedTypeOfSale: String = "For Sale"
+    @State static private var minProductValue: String = ""
+    @State static private var maxProductValue: String = ""
+    @State static private var locationSearchBar: String = ""
+
+    static var previews: some View {
+        FiltersSideMenu(
+                                selectedFilter: .constant("Category"),
+                                selectedTypeOfSale: .constant("Sale"),
+                                minProductValue: .constant("0"),
+                                maxProductValue: .constant("100"),
+                                locationSearchBar: .constant("Location"),
+                                categoryStatus: .constant("")
+                                )
+    }
+}
