@@ -20,7 +20,6 @@ struct ProfileMenuRow: View {
                 .frame(alignment: .leading)
                 .padding(.horizontal, 10)
                 
-            
             Text(item.text)
                 .customFont(.subheadline)
             Spacer()

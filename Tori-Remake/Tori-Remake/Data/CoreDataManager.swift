@@ -57,6 +57,8 @@ class CoreDataManager : ObservableObject {
             let coreUser = CoreUser(context: context)
             coreUser.id = user.id
             coreUser.name = user.name
+            coreUser.email = user.email
+            coreUser.password = user.password
             coreUser.accountCreationDate = user.accountCreationDate
                 
         // Loop through user's listOfAdds and create Product entities in Core Data
@@ -97,17 +99,30 @@ class CoreDataManager : ObservableObject {
         }
     }
     
-    func fetchUser(withID id: UUID) -> CoreUser? {
+//    func fetchUser(withID id: UUID) -> CoreUser? {
+//        let fetchRequest: NSFetchRequest<CoreUser> = CoreUser.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+//        fetchRequest.relationshipKeyPathsForPrefetching = ["addedProducts", "addedFavorites"]
+//
+//        do {
+//            let fetchedUsers = try managedObjectContext.fetch(fetchRequest)
+//            return fetchedUsers.first
+//        } catch {
+//            print("Error fetching user: \(error)")
+//            return nil
+//        }
+//    }
+    
+    func fetchUser(withEmail email: String, password: String) -> Bool {
         let fetchRequest: NSFetchRequest<CoreUser> = CoreUser.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        fetchRequest.relationshipKeyPathsForPrefetching = ["addedProducts", "addedFavorites"]
-
+        fetchRequest.predicate = NSPredicate(format: "email == %@ AND password == %@", email, password)
+        
         do {
             let fetchedUsers = try managedObjectContext.fetch(fetchRequest)
-            return fetchedUsers.first
+            return !fetchedUsers.isEmpty
         } catch {
             print("Error fetching user: \(error)")
-            return nil
+            return false
         }
     }
     

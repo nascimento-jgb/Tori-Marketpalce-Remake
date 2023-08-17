@@ -21,6 +21,8 @@ class UserData : ObservableObject {
 
 let user1 = User(id: UUID(),
                  name: "John Doe",
+                 email: "123@gmail.com",
+                 password: "123",
                  accountCreationDate: randomDate(),
                  listOfAdds: [
                     Product(id: UUID(),
@@ -38,6 +40,8 @@ let user1 = User(id: UUID(),
 
 let user2 = User(id: UUID(),
                  name: "Jane Smith",
+                 email: "janesmith@gmail.com",
+                 password: "janesmith",
                  accountCreationDate: randomDate(),
                  listOfAdds: [
                     Product(id: UUID(),

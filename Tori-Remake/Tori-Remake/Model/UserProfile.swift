@@ -10,6 +10,8 @@ import Foundation
 struct User: Encodable, Identifiable {
     let id: UUID
     let name: String
+    let email: String
+    let password: String
     let accountCreationDate: Date
     let listOfAdds: [Product]
     let listOfFavorites: [Product]

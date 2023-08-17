@@ -10,7 +10,7 @@ import CoreData
 
 struct MainMenuView: View {
     
-    @ObservedObject private var viewModel: MainMenuViewModel
+    @ObservedObject var viewModel: MainMenuViewModel
     
     @Binding private var selectedFilter: String
     @Binding private var selectedTypeOfSale: String
@@ -137,7 +137,8 @@ struct MainMenuView_Previews: PreviewProvider {
         let context = CoreDataManager.shared.managedObjectContext
         let viewModel = MainMenuViewModel()
         
-        return MainMenuView(viewModel: viewModel,
+        return MainMenuView(
+                            viewModel: viewModel,
                             selectedFilter: .constant("Category"),
                             selectedTypeOfSale: .constant("Sale"),
                             minProductValue: .constant("0"),

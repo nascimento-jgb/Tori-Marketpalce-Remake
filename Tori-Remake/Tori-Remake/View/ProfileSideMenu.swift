@@ -12,17 +12,26 @@ struct ProfileSideMenu: View {
     @State var selectedMenu: SelectedMenuItem = .home
     @State var isDarkMode = false
     
+    @State private var isLoggedIn = UserDefaults.standard.string(forKey: kIsLoggedIn) ?? ""
+    @State private var profileEmail = UserDefaults.standard.string(forKey: kEmail) ?? ""
+    @State private var profilePassword = UserDefaults.standard.string(forKey: kPassword) ?? ""
+    
+    @State private var showLogoutConfirmation = false
+    
     var body: some View {
         VStack{
-        
             HStack{
                 Spacer()
-                Image(systemName: "person")
-                    .padding(12)
-                    .background(.white.opacity(0.2))
-                    .mask(Circle())
+                Button(action: {
+                        showLogoutConfirmation.toggle()
+                    }) {
+                        Image(systemName: "person")
+                            .padding(12)
+                            .background(.white.opacity(0.2))
+                            .mask(Circle())
+                    }
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("JOAO NASCIMENTO")
+                    Text(profileEmail)
                         .customFont(.body)
                     Text("Partners since 2021")
                         .customFont(.headline)
@@ -33,6 +42,38 @@ struct ProfileSideMenu: View {
             .padding()
             .padding(.leading, -45)
             .background(Constants.Colors.primaryColor).opacity(0.8)
+            
+            if showLogoutConfirmation {
+                VStack {
+                        Text("Do you want to log out?")
+                            .customFont(.headline)
+                            .padding()
+                        
+                    HStack{
+                            Spacer()
+                            Button("No") {
+                                showLogoutConfirmation.toggle()
+                            }
+                            .foregroundColor(.primary)
+                            .customFont(.subheadline)
+                            
+                            Spacer()
+                            Button("Yes") {
+                                logout()
+                            }
+                            .foregroundColor(.primary)
+                            .customFont(.subheadline)
+                        
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .padding()
+                    .shadow(radius: 5)
+                }
             
             Text("BROWSE")
                 .customFont(.body)
@@ -70,18 +111,22 @@ struct ProfileSideMenu: View {
             }
             .padding(8)
             
-            Spacer()
-            
-            HStack(spacing: 5){
-                Image(systemName: menuItems3[0].icon)
-                    .frame(width: 32, height: 32)
-                    .opacity(0.6)
-                    .padding(.leading, 20)
-                Text(menuItems3[0].text)
-                    .customFont(.headline)
-                Toggle("", isOn: $isDarkMode)
-                    .toggleStyle(SwitchToggleStyle(tint: Constants.Colors.primaryColor))
-                    .padding(.trailing, 25)
+            VStack{
+                Spacer()
+                
+                HStack(spacing: 5){
+                    Image(systemName: menuItems3[0].icon)
+                        .frame(width: 32, height: 32)
+                        .opacity(0.6)
+                        .padding(.leading, 20)
+                    Text(menuItems3[0].text)
+                        .customFont(.headline)
+                    Toggle("", isOn: $isDarkMode)
+                        .toggleStyle(SwitchToggleStyle(tint: Constants.Colors.primaryColor))
+                        .padding(.trailing, 25)
+                }
+                
+                Spacer()
             }
             
             Spacer()
@@ -94,6 +139,12 @@ struct ProfileSideMenu: View {
         .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.horizontal, -5)
     }
+    
+    func logout() {
+            UserDefaults.standard.set(false, forKey: kIsLoggedIn)
+            // Add any other necessary cleanup
+            // Navigate back to sign-in page
+        }
 }
 
 struct ProfileSideMenu_Previews: PreviewProvider {

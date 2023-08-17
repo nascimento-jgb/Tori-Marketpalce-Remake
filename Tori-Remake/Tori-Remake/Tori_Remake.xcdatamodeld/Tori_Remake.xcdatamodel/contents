@@ -16,10 +16,12 @@
     </entity>
     <entity name="CoreUser" representedClassName="CoreUser" syncable="YES" codeGenerationType="class">
         <attribute name="accountCreationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="listFavorites" optional="YES" attributeType="String"/>
         <attribute name="listProducts" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
         <relationship name="addedFavorites" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreProduct" inverseName="userFavorites" inverseEntity="CoreProduct"/>
         <relationship name="addedProducts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreProduct" inverseName="user" inverseEntity="CoreProduct"/>
     </entity>
