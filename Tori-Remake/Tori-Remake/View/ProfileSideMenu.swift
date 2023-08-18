@@ -45,35 +45,7 @@ struct ProfileSideMenu: View {
             .background(Constants.Colors.primaryColor).opacity(0.8)
             
             if showLogoutConfirmation {
-                VStack {
-                        Text("Do you want to log out?")
-                            .customFont(.headline)
-                            .padding()
-                        
-                    HStack{
-                            Spacer()
-                            Button("No") {
-                                showLogoutConfirmation.toggle()
-                            }
-                            .foregroundColor(.primary)
-                            .customFont(.subheadline)
-                            
-                            Spacer()
-                            Button("Yes") {
-                                logout()
-                            }
-                            .foregroundColor(.primary)
-                            .customFont(.subheadline)
-                        
-                            Spacer()
-                        }
-                        .padding(.horizontal)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .background(Color.white)
-                    .cornerRadius(20)
-                    .padding()
-                    .shadow(radius: 5)
+                    showLogoutBox()
                 }
             
             Text("BROWSE")
@@ -139,6 +111,40 @@ struct ProfileSideMenu: View {
         .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
         .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.horizontal, -5)
+    }
+    
+    //Extra functions
+    func showLogoutBox() -> some View {
+        VStack {
+                Text("Do you want to log out?")
+                    .customFont(.headline)
+                    .padding()
+                
+            HStack{
+                    Spacer()
+                    Button("No") {
+                        showLogoutConfirmation.toggle()
+                    }
+                    .foregroundColor(.primary)
+                    .customFont(.subheadline)
+                    
+                    Spacer()
+                    Button("Yes") {
+                        logout()
+                    }
+                    .foregroundColor(.primary)
+                    .customFont(.subheadline)
+                
+                    Spacer()
+                }
+                .padding(.horizontal)
+            }
+            .shadow(radius: 5, x: 0, y: 2)
+            .frame(maxWidth: .infinity)
+            .background(Color.white)
+            .cornerRadius(20)
+            .padding()
+            
     }
     
     func logout() {

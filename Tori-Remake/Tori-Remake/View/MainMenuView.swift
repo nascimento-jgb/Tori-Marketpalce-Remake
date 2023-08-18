@@ -12,34 +12,16 @@ struct MainMenuView: View {
     
     @ObservedObject var viewModel: MainMenuViewModel
     
-    @Binding private var selectedFilter: String
-    @Binding private var selectedTypeOfSale: String
-    @Binding private var minProductValue: String
-    @Binding private var maxProductValue: String
-    @Binding private var locationSearchBar: String
-    @Binding private var categoryStatus: String
-    
     @State private var showMenu = false
     @State private var searchText = ""
     @State private var isProfileOpen = false
     @State private var isCategoryFiltersOpen = false
+    @State private var displayedProductCount: Int = 0
     
     init(
-            viewModel: MainMenuViewModel,
-            selectedFilter: Binding<String>,
-            selectedTypeOfSale: Binding<String>,
-            minProductValue: Binding<String>,
-            maxProductValue: Binding<String>,
-            locationSearchBar: Binding<String>,
-            categoryStatus: Binding<String>
+        viewModel: MainMenuViewModel
         ) {
-            self.viewModel = viewModel
-            _selectedFilter = selectedFilter
-            _selectedTypeOfSale = selectedTypeOfSale
-            _minProductValue = minProductValue
-            _maxProductValue = maxProductValue
-            _locationSearchBar = locationSearchBar
-            _categoryStatus = categoryStatus
+        self.viewModel = viewModel
         }
     
     
@@ -53,15 +35,14 @@ struct MainMenuView: View {
             
                 if isCategoryFiltersOpen{
                     Constants.Colors.primaryColor.ignoresSafeArea().opacity(0.1)
-                    FiltersSideMenu(selectedFilter: $selectedFilter, selectedTypeOfSale: $selectedTypeOfSale, minProductValue: $minProductValue, maxProductValue: $maxProductValue, locationSearchBar: $locationSearchBar, categoryStatus: $categoryStatus)
+                    FiltersSideMenu(viewModel: viewModel, displayedProductCount: $displayedProductCount)
                 }
             
             ZStack {
-                
                 VStack{
-                    viewModel.categorySelectionHeaderView(categoryStatus: $categoryStatus)
+                    viewModel.categorySelectionHeaderView(categoryStatus: $viewModel.categoryStatus)
                     
-                    viewModel.createProductsScrollView(categoryStatus: $categoryStatus, searchText: $searchText, selectedFilter: $selectedFilter, selectedTypeOfSale: $selectedTypeOfSale, minProductValue: $minProductValue, maxProductValue: $maxProductValue, locationSearchBar: $locationSearchBar)
+                    ProductsScrollView(viewModel: viewModel)
                         
                     VStack {
                         Image(systemName: "chevron.compact.up")
@@ -74,42 +55,42 @@ struct MainMenuView: View {
                                 }
                             }
                         
-                        HStack {
+                    HStack {
                             Image(systemName: "list.bullet.indent")
-                                .foregroundColor(showMenu ? Constants.Colors.primaryColor : .black)
-                                .padding(.leading, 2)
-                                .onTapGesture {
-                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                                        isCategoryFiltersOpen.toggle()
-                                    }
+                            .foregroundColor(showMenu ? Constants.Colors.primaryColor : .black)
+                            .padding(.leading, 2)
+                            .onTapGesture {
+                                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                    isCategoryFiltersOpen.toggle()
                                 }
+                            }
                             
-                            TextField("Search for an Item", text: $searchText)
-                                .customFont(.body)
-                                .padding(.vertical, 12)
-                                .padding(.leading, 8)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .fill(Color.white)
-                                        .shadow(radius: 3)
-                                )
-                                .padding(.horizontal, 8)
+                    TextField("Search for an Item", text: $searchText)
+                            .customFont(.body)
+                            .padding(.vertical, 12)
+                            .padding(.leading, 8)
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color.white)
+                                    .shadow(radius: 3)
+                            )
+                            .padding(.horizontal, 8)
                                 
                             
-                            Image(systemName: "person")
-                                .foregroundColor(showMenu ? .black : Constants.Colors.primaryColor)
-                                .padding(.trailing, 2)
-                                .onTapGesture {
-                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                                        isProfileOpen.toggle()
-                                    }
+                    Image(systemName: "person")
+                            .foregroundColor(showMenu ? .black : Constants.Colors.primaryColor)
+                            .padding(.trailing, 2)
+                            .onTapGesture {
+                                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                    isProfileOpen.toggle()
                                 }
+                            }
                         }
                         .padding()
                   
                         
                         if showMenu {
-                            CategoriesView(categoryStatus: $categoryStatus)
+                            CategoriesView(viewModel: viewModel)
                                 .padding(2)
                                 .animation(.spring().delay(2), value: showMenu)
                         }
@@ -138,13 +119,13 @@ struct MainMenuView_Previews: PreviewProvider {
         let viewModel = MainMenuViewModel()
         
         return MainMenuView(
-                            viewModel: viewModel,
-                            selectedFilter: .constant("Category"),
-                            selectedTypeOfSale: .constant("Sale"),
-                            minProductValue: .constant("0"),
-                            maxProductValue: .constant("100"),
-                            locationSearchBar: .constant("Location"),
-                            categoryStatus: .constant("None")
+                            viewModel: viewModel
+//                            selectedFilter: .constant("Category"),
+//                            selectedTypeOfSale: .constant("Sale"),
+//                            minProductValue: .constant("0"),
+//                            maxProductValue: .constant("100"),
+//                            locationSearchBar: .constant("Location"),
+//                            categoryStatus: .constant("None")
                             )
             .environment(\.managedObjectContext, context)
             .environmentObject(viewModel)

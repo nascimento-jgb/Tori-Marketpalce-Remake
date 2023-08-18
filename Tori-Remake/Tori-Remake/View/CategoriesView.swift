@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoriesView: View {
     
-    @Binding var categoryStatus: String
+    @ObservedObject var viewModel: MainMenuViewModel
     
     var body: some View {
         
@@ -20,8 +20,8 @@ struct CategoriesView: View {
                     if let imageHolder = categoryImages[category] {
                         VStack{
                             Button(action: {
-                                categoryStatus = category.rawValue
-                                print(categoryStatus)
+                                viewModel.categoryStatus = category.rawValue
+                                print(viewModel.categoryStatus)
                             }){
                                 Image(imageHolder)
                                     .resizable()
@@ -34,7 +34,6 @@ struct CategoriesView: View {
                                 .customFont(.headline)
                                 .foregroundColor(.black)
                                 .font(.caption)
-                            
                         }
                     }
                 }
@@ -48,14 +47,8 @@ struct CategoriesView: View {
 
 struct CategoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoriesViewPreview()
-    }
-}
-
-struct CategoriesViewPreview: View {
-    @State private var categoryStatus: String = "" // Simulate the binding
-    
-    var body: some View {
-        CategoriesView(categoryStatus: $categoryStatus)
+        let dummyViewModel = MainMenuViewModel()
+        
+        CategoriesView(viewModel: dummyViewModel)
     }
 }

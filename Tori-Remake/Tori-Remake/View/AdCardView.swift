@@ -84,11 +84,9 @@ struct AdCardView: View {
                                     .font(.system(size: 18, weight: .semibold))
                                     .padding(.trailing, 15)
                                     .padding(.bottom, -45)
-                                
                             }
                         }
                         .frame(height: 200)
-                        
                     }
                 }
             }
@@ -98,7 +96,7 @@ struct AdCardView: View {
 
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateStyle = .short // Customize the date style as needed
+    formatter.dateStyle = .short
     return formatter
 }()
 

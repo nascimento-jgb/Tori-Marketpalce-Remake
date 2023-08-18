@@ -9,33 +9,30 @@ import SwiftUI
 
 struct FiltersSideMenu: View {
     
+    @ObservedObject var viewModel: MainMenuViewModel
+    
+    @Binding var displayedProductCount: Int
+    
     @State private var showFilteredMenu = false
     @State private var showTypeOfSaleMenu = false
-    
-    @Binding var selectedFilter: String
-    @Binding var selectedTypeOfSale: String
-    @Binding var minProductValue: String
-    @Binding var maxProductValue: String
-    @Binding var locationSearchBar: String
-    @Binding var categoryStatus: String
     
     var body: some View {
         
         ZStack{
             VStack{
-                    HStack{
-                        Spacer()
-                        Image(systemName: "person")
-                            .padding(12)
-                            .background(.white.opacity(0.2))
-                            .mask(Circle())
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("JOAO NASCIMENTO")
-                                .customFont(.body)
-                            Text("Partners since 2021")
-                                .customFont(.headline)
-                                .opacity(0.7)
-                        }
+                 HStack{
+                    Spacer()
+                    Image(systemName: "cart")
+                        .padding(12)
+                        .background(.white.opacity(0.2))
+                        .mask(Circle())
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("\(displayedProductCount) available products")
+                            .customFont(.body)
+                        Text("Let's find a good deal!")
+                            .customFont(.headline)
+                            .opacity(0.7)
+                    }
                         Spacer()
                     }
                     .padding()
@@ -51,8 +48,8 @@ struct FiltersSideMenu: View {
                         .padding(.top, 25)
                     
                     Text("")
-                        .customMenuFilterBox(items: ["Newest", "Oldest", "Cheapest", "Expensier"], selectedItem: $selectedFilter){ item in
-                            selectedFilter = item
+                        .customMenuFilterBox(items: ["Newest", "Oldest", "Cheapest", "Expensier"], selectedItem: $viewModel.selectedFilter){ item in
+                            viewModel.selectedFilter = item
                     }
                     
                     Text("Location:")
@@ -61,7 +58,7 @@ struct FiltersSideMenu: View {
                         .padding(.horizontal, 25)
                         .padding(.top, 25)
                     
-                    TextField("Find in your area", text: $locationSearchBar)
+                    TextField("Find in your area", text: $viewModel.locationSearchBar)
                         .customFont(.headline)
                         .padding(.leading, 25)
                         .background(
@@ -84,8 +81,8 @@ struct FiltersSideMenu: View {
                         .padding(.top, 25)
                     
                     Text("")
-                        .customMenuFilterBox(items: ["For Sale", "Want to Buy", "Want to Give", "For Rent", "Want to Rent"], selectedItem: $selectedTypeOfSale){ item in
-                            selectedTypeOfSale = item
+                        .customMenuFilterBox(items: ["For Sale", "Want to Buy", "Want to Give", "For Rent", "Want to Rent"], selectedItem: $viewModel.selectedTypeOfSale){ item in
+                            viewModel.selectedTypeOfSale = item
                         }
                     
                     Text("Price Range:")
@@ -95,13 +92,13 @@ struct FiltersSideMenu: View {
                         .padding(.top, 25)
                     
                     HStack{
-                        TextField("Min", text: $minProductValue)
+                        TextField("Min", text: $viewModel.minProductValue)
                             .customFont(.headline)
                             .customFilterRangeBox()
                         
                         Spacer()
                         
-                        TextField("Max", text: $maxProductValue)
+                        TextField("Max", text: $viewModel.maxProductValue)
                             .customFont(.headline)
                             .customFilterRangeBox()
                     }
@@ -114,8 +111,8 @@ struct FiltersSideMenu: View {
                         .padding(.top, 25)
                     
                     HStack {
-                        Text("\(categoryStatus)")
-                            .customFilterAditional(label: "\(categoryStatus)", categoryStatus: categoryStatus) {
+                        Text("\(viewModel.categoryStatus)")
+                            .customFilterAditional(label: "\(viewModel.categoryStatus)", categoryStatus: viewModel.categoryStatus) {
                                 // Still need to add the action for each category
                                 showTypeOfSaleMenu.toggle()
                             }
@@ -141,13 +138,9 @@ struct FiltersSideMenu_Previews: PreviewProvider {
     @State static private var locationSearchBar: String = ""
 
     static var previews: some View {
-        FiltersSideMenu(
-                                selectedFilter: .constant("Category"),
-                                selectedTypeOfSale: .constant("Sale"),
-                                minProductValue: .constant("0"),
-                                maxProductValue: .constant("100"),
-                                locationSearchBar: .constant("Location"),
-                                categoryStatus: .constant("")
-                                )
+        
+        let dummyViewModel = MainMenuViewModel()
+        
+        FiltersSideMenu(viewModel: dummyViewModel, displayedProductCount: .constant(1))
     }
 }

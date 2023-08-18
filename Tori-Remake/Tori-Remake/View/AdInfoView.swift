@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AdInfoView: View {
+    
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var coreUser: CoreUser
@@ -17,7 +18,6 @@ struct AdInfoView: View {
     var body: some View {
         
         VStack{
-            
             ZStack{
                 Image(coreProduct.imageInfo ?? "")
                     .resizable()
@@ -110,13 +110,12 @@ struct AdInfoView: View {
                         .padding(.trailing, 15)
                         .padding(1)
                     
-
-                        Text("Information of the seller:")
+                    Text("Information of the seller:")
                             .customFont(.body).bold()
                             .padding(.top, 3)
                             .padding(1)
      
-                        Text(coreUser.name ?? "")
+                    Text(coreUser.name ?? "")
                             .customFont(.title2)
                             .multilineTextAlignment(.leading)
                     
@@ -126,7 +125,7 @@ struct AdInfoView: View {
                             .padding(.bottom, 6)
                     
                     Button(action: {
-                        
+                        //Action to show all ads/products being displayed by the seller
                     })
                     {
                         HStack {
@@ -143,36 +142,12 @@ struct AdInfoView: View {
                     }
                 }
                 //VStack
-                
-//                List{
-//                    Button(action: {
-//                                        // Action for the first button in the list
-//                        }) {
-//                            HStack {
-//                                Image(systemName: "hand.thumbsup")
-//                                Text("Button 1")
-//                                    .foregroundColor(.red)
-//                            }
-//                        }
-//
-//                    Button(action: {
-//                                        // Action for the second button in the list
-//                        }) {
-//                            HStack {
-//                                Image(systemName: "hand.point.right")
-//                                Text("Button 2")
-//                                    .foregroundColor(.red)
-//                            }
-//                        }
-//
-//                }//ist
-                
             }//Scrollview
             
             VStack {
                     Spacer()
                     Button(action: {
-                               // Action for the new button
+                        // Action for the message button
                     }) {
                         Text("Send Message")
                             .customFont(.title3)

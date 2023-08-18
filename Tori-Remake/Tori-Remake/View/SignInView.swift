@@ -17,13 +17,6 @@ struct SignInView: View {
     
     @ObservedObject var viewModel: MainMenuViewModel
     
-    @State private var selectedFilter: String = "Newest"
-    @State private var selectedTypeOfSale: String = "For Sale"
-    @State private var minProductValue: String = ""
-    @State private var maxProductValue: String = ""
-    @State private var locationSearchBar: String = ""
-    @State private var categoryStatus = ""
-    
     @State var email = ""
     @State var password = ""
     @State var showAlert = false
@@ -151,13 +144,8 @@ struct SignInView: View {
                 
             }
             .navigationDestination(isPresented: $isLoggedIn) {
-                    MainMenuView(viewModel: viewModel,
-                                 selectedFilter: $selectedFilter,
-                                 selectedTypeOfSale: $selectedTypeOfSale,
-                                 minProductValue: $minProductValue,
-                                 maxProductValue: $maxProductValue,
-                                 locationSearchBar: $locationSearchBar,
-                                 categoryStatus: $categoryStatus).navigationBarBackButtonHidden(true)
+                    MainMenuView(viewModel: viewModel)
+                    .navigationBarBackButtonHidden(true)
             }
         }
     }
@@ -170,11 +158,15 @@ struct SignInView: View {
     }
 }
 
-//struct SignInView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SignInView()
-//    }
-//}
+
+
+struct SignInView_Previews: PreviewProvider {
+    static var previews: some View {
+        let dummyViewModel = MainMenuViewModel()
+        
+        return SignInView(viewModel: dummyViewModel)
+    }
+}
 
 
 
