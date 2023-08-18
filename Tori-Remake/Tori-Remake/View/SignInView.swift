@@ -148,15 +148,16 @@ struct SignInView: View {
                 if UserDefaults.standard.bool(forKey: kIsLoggedIn) {
                     isLoggedIn = true
                 }
+                
             }
             .navigationDestination(isPresented: $isLoggedIn) {
-                MainMenuView(viewModel: viewModel,
-                             selectedFilter: $selectedFilter,
-                             selectedTypeOfSale: $selectedTypeOfSale,
-                             minProductValue: $minProductValue,
-                             maxProductValue: $maxProductValue,
-                             locationSearchBar: $locationSearchBar,
-                             categoryStatus: $categoryStatus).navigationBarBackButtonHidden(true)
+                    MainMenuView(viewModel: viewModel,
+                                 selectedFilter: $selectedFilter,
+                                 selectedTypeOfSale: $selectedTypeOfSale,
+                                 minProductValue: $minProductValue,
+                                 maxProductValue: $maxProductValue,
+                                 locationSearchBar: $locationSearchBar,
+                                 categoryStatus: $categoryStatus).navigationBarBackButtonHidden(true)
             }
         }
     }

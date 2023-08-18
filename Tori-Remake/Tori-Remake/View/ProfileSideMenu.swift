@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ProfileSideMenu: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var selectedMenu: SelectedMenuItem = .home
     @State var isDarkMode = false
     
     @State private var isLoggedIn = UserDefaults.standard.string(forKey: kIsLoggedIn) ?? ""
     @State private var profileEmail = UserDefaults.standard.string(forKey: kEmail) ?? ""
-    @State private var profilePassword = UserDefaults.standard.string(forKey: kPassword) ?? ""
     
     @State private var showLogoutConfirmation = false
     
@@ -142,8 +143,9 @@ struct ProfileSideMenu: View {
     
     func logout() {
             UserDefaults.standard.set(false, forKey: kIsLoggedIn)
-            // Add any other necessary cleanup
-            // Navigate back to sign-in page
+            showLogoutConfirmation = false
+            presentationMode.wrappedValue.dismiss()
+        
         }
 }
 

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FiltersSideMenu: View {
     
-    
     @State private var showFilteredMenu = false
     @State private var showTypeOfSaleMenu = false
     
@@ -23,9 +22,7 @@ struct FiltersSideMenu: View {
     var body: some View {
         
         ZStack{
-            
             VStack{
-                
                     HStack{
                         Spacer()
                         Image(systemName: "person")
@@ -53,44 +50,9 @@ struct FiltersSideMenu: View {
                         .padding(.horizontal, 25)
                         .padding(.top, 25)
                     
-                    HStack {
-                        Menu {
-                            Button("Newest") {
-                                selectedFilter = "Newest"
-                            }
-                            Button("Oldest") {
-                                selectedFilter = "Oldest"
-                            }
-                            Button("Cheapest") {
-                                selectedFilter = "Cheapest"
-                            }
-                            Button("Expensier") {
-                                selectedFilter = "Expensier"
-                            }
-                        } label: {
-                            RoundedRectangle(cornerRadius: 25)
-                                .frame(width: 250, height: 30)
-                                .foregroundColor(.white)
-                                .overlay{
-                                    RoundedRectangle(cornerRadius: 25)
-                                        .stroke(Constants.Colors.primaryColor.opacity(0.7), lineWidth: 1)
-                                        .shadow(radius: 3)
-                                }
-                                .overlay(
-                                    HStack {
-                                        Text(selectedFilter)
-                                            .customFont(.headline)
-                                            .foregroundColor(.black)
-                                        Image(systemName: "chevron.down")
-                                            .foregroundColor(Constants.Colors.primaryColor.opacity(0.7))
-                                    }
-                                    .padding(.horizontal)
-                                    .onTapGesture {
-                                        showFilteredMenu.toggle()
-                                    }
-                                )
-                        }
-                        .padding(3)
+                    Text("")
+                        .customMenuFilterBox(items: ["Newest", "Oldest", "Cheapest", "Expensier"], selectedItem: $selectedFilter){ item in
+                            selectedFilter = item
                     }
                     
                     Text("Location:")
@@ -121,49 +83,10 @@ struct FiltersSideMenu: View {
                         .padding(.horizontal, 25)
                         .padding(.top, 25)
                     
-                    HStack {
-                        Menu {
-                            Button("For Sale") {
-                                selectedTypeOfSale = "For Sale"
-                            }
-                            Button("Want to Buy") {
-                                selectedTypeOfSale = "Want to Buy"
-                            }
-                            Button("Want to Give") {
-                                selectedTypeOfSale = "Want to Give"
-                            }
-                            Button("For Rent") {
-                                selectedTypeOfSale = "For Rent"
-                            }
-                            Button("Want to Rent") {
-                                selectedTypeOfSale = "Want to Rent"
-                            }
-                           
-                        } label: {
-                            RoundedRectangle(cornerRadius: 25)
-                                .frame(width: 250, height: 30)
-                                .foregroundColor(.white)
-                                .overlay{
-                                    RoundedRectangle(cornerRadius: 25)
-                                        .stroke(Constants.Colors.primaryColor.opacity(0.7), lineWidth: 1)
-                                        .shadow(radius: 3)
-                                }
-                                .overlay(
-                                    HStack {
-                                        Text(selectedTypeOfSale)
-                                            .customFont(.headline)
-                                            .foregroundColor(.black)
-                                        Image(systemName: "chevron.down")
-                                            .foregroundColor(Constants.Colors.primaryColor.opacity(0.7))
-                                    }
-                                    .padding(.horizontal)
-                                    .onTapGesture {
-                                        showTypeOfSaleMenu.toggle()
-                                    }
-                                )
+                    Text("")
+                        .customMenuFilterBox(items: ["For Sale", "Want to Buy", "Want to Give", "For Rent", "Want to Rent"], selectedItem: $selectedTypeOfSale){ item in
+                            selectedTypeOfSale = item
                         }
-                        .padding(3)
-                    }
                     
                     Text("Price Range:")
                         .customFont(.body)
@@ -174,35 +97,13 @@ struct FiltersSideMenu: View {
                     HStack{
                         TextField("Min", text: $minProductValue)
                             .customFont(.headline)
-                            .padding(.leading, 35)
-                            .background(
-                                RoundedRectangle(cornerRadius: 25)
-                                    .fill(.white)
-                                    .frame(width: 100, height: 30)
-                                    .overlay{
-                                        RoundedRectangle(cornerRadius: 25)
-                                            .stroke(Constants.Colors.primaryColor.opacity(0.7), lineWidth: 1)
-                                            .shadow(radius: 3)
-                                        }
-                            )
-                            .padding(.leading, -15)
+                            .customFilterRangeBox()
                         
                         Spacer()
                         
                         TextField("Max", text: $maxProductValue)
                             .customFont(.headline)
-                            .padding(.leading, 35)
-                            .background(
-                                RoundedRectangle(cornerRadius: 25)
-                                    .fill(.white)
-                                    .frame(width: 100, height: 30)
-                                    .overlay{
-                                        RoundedRectangle(cornerRadius: 25)
-                                            .stroke(Constants.Colors.primaryColor.opacity(0.7), lineWidth: 1)
-                                            .shadow(radius: 3)
-                                        }
-                            )
-                            .padding(.trailing, -15)
+                            .customFilterRangeBox()
                     }
                     .padding()
                     
@@ -213,32 +114,11 @@ struct FiltersSideMenu: View {
                         .padding(.top, 25)
                     
                     HStack {
-                        Menu {
-                            
-                        } label: {
-                            RoundedRectangle(cornerRadius: 25)
-                                .frame(width: 250, height: 30)
-                                .foregroundColor(.white)
-                                .overlay{
-                                    RoundedRectangle(cornerRadius: 25)
-                                        .stroke(Constants.Colors.primaryColor.opacity(0.7), lineWidth: 1)
-                                        .shadow(radius: 3)
-                                }
-                                .overlay(
-                                    HStack {
-                                        Text(categoryStatus.isEmpty ? "" : categoryStatus)
-                                            .customFont(.headline)
-                                            .foregroundColor(.black)
-                                        Image(systemName: "chevron.down")
-                                            .foregroundColor(Constants.Colors.primaryColor.opacity(0.7))
-                                    }
-                                    .padding(.horizontal)
-                                    .onTapGesture {
-                                        showTypeOfSaleMenu.toggle()
-                                    }
-                                )
-                        }
-                        .padding(3)
+                        Text("\(categoryStatus)")
+                            .customFilterAditional(label: "\(categoryStatus)", categoryStatus: categoryStatus) {
+                                // Still need to add the action for each category
+                                showTypeOfSaleMenu.toggle()
+                            }
                     }
                 }
                 

@@ -21,7 +21,6 @@ struct ProductsScrollView: View {
     
     var body: some View {
         ScrollView {
-
             Spacer()
             
                 let sortedProducts = getProducts().sorted(by: dynamicSort)
