@@ -11,8 +11,6 @@ struct FiltersSideMenu: View {
     
     @ObservedObject var viewModel: MainMenuViewModel
     
-    @Binding var displayedProductCount: Int
-    
     @State private var showFilteredMenu = false
     @State private var showTypeOfSaleMenu = false
     
@@ -27,7 +25,7 @@ struct FiltersSideMenu: View {
                         .background(.white.opacity(0.2))
                         .mask(Circle())
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("\(displayedProductCount) available products")
+                        Text("\(viewModel.displayedProductCount) available products")
                             .customFont(.body)
                         Text("Let's find a good deal!")
                             .customFont(.headline)
@@ -115,10 +113,9 @@ struct FiltersSideMenu: View {
                             .customFilterAditional(label: "\(viewModel.categoryStatus)", categoryStatus: viewModel.categoryStatus) {
                                 // Still need to add the action for each category
                                 showTypeOfSaleMenu.toggle()
-                            }
+                        }
                     }
                 }
-                
             }
             .foregroundColor(.black)
             .frame(maxWidth: 278, maxHeight: .infinity)
@@ -141,6 +138,6 @@ struct FiltersSideMenu_Previews: PreviewProvider {
         
         let dummyViewModel = MainMenuViewModel()
         
-        FiltersSideMenu(viewModel: dummyViewModel, displayedProductCount: .constant(1))
+        FiltersSideMenu(viewModel: dummyViewModel)
     }
 }

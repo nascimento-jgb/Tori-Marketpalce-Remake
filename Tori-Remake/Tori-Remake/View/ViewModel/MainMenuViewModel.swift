@@ -22,6 +22,7 @@ class MainMenuViewModel: ObservableObject {
     @Published var minProductValue: String = ""
     @Published var maxProductValue: String = ""
     @Published var locationSearchBar: String = ""
+    @Published var displayedProductCount: Int = 0
     
     private var cancellables: Set<AnyCancellable> = []
     private var hasFetchedData = false
@@ -70,7 +71,7 @@ class MainMenuViewModel: ObservableObject {
         }
     }
     
-    //ProductScroll view methods
+    //PRODUCT SCROLL VIEW METHODS
     func filteredProducts(viewModel: MainMenuViewModel) -> [CoreProduct] {
         let sortedProducts = getProducts(viewModel: viewModel).sorted(by: dynamicSort)
         
@@ -117,6 +118,10 @@ class MainMenuViewModel: ObservableObject {
             }
         }
         return nil
+    }
+    
+    func updateProductCount(viewModel: MainMenuViewModel) {
+        displayedProductCount = viewModel.filteredProducts(viewModel: viewModel).count
     }
 }
 

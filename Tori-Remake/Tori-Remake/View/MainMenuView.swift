@@ -16,7 +16,6 @@ struct MainMenuView: View {
     @State private var searchText = ""
     @State private var isProfileOpen = false
     @State private var isCategoryFiltersOpen = false
-    @State private var displayedProductCount: Int = 0
     
     init(
         viewModel: MainMenuViewModel
@@ -35,7 +34,7 @@ struct MainMenuView: View {
             
                 if isCategoryFiltersOpen{
                     Constants.Colors.primaryColor.ignoresSafeArea().opacity(0.1)
-                    FiltersSideMenu(viewModel: viewModel, displayedProductCount: $displayedProductCount)
+                    FiltersSideMenu(viewModel: viewModel)
                 }
             
             ZStack {
@@ -43,6 +42,25 @@ struct MainMenuView: View {
                     viewModel.categorySelectionHeaderView(categoryStatus: $viewModel.categoryStatus)
                     
                     ProductsScrollView(viewModel: viewModel)
+                    .onChange(of: viewModel.selectedFilter, perform: { value in
+                        viewModel.updateProductCount(viewModel: viewModel)
+                                })
+                    .onChange(of: viewModel.selectedTypeOfSale, perform: { value in
+                        viewModel.updateProductCount(viewModel: viewModel)
+                                })
+                    .onChange(of: viewModel.minProductValue, perform: { value in
+                        viewModel.updateProductCount(viewModel: viewModel)
+                            })
+                    .onChange(of: viewModel.maxProductValue, perform: { value in
+                        viewModel.updateProductCount(viewModel: viewModel)
+                            })
+                    .onChange(of: viewModel.locationSearchBar, perform: { value in
+                        viewModel.updateProductCount(viewModel: viewModel)
+                            })
+                    .onChange(of: viewModel.categoryStatus, perform: { value in
+                        viewModel.updateProductCount(viewModel: viewModel)
+                            })
+                    
                         
                     VStack {
                         Image(systemName: "chevron.compact.up")
