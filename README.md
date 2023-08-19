@@ -5,8 +5,7 @@ Remake of Tori.fi marketplace app for educational purposes. The ideas was to pre
 
 - Sign in system and authentication
 - MVVM (Model-View-ViewModel) 
-- Use of animations
-- Multiple and simultaneous filtering
+- Multiple and simultaneous filtering/sorting
 - Fetch data from Core Data
 - Aniamtions and 3D effects
 
