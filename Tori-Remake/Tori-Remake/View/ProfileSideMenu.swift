@@ -42,7 +42,7 @@ struct ProfileSideMenu: View {
             }
             .padding()
             .padding(.leading, -45)
-            .background(Constants.Colors.primaryColor).opacity(0.8)
+            .background(Constants.Colors.primaryColor).opacity(0.9)
             
             if showLogoutConfirmation {
                     showLogoutBox()
