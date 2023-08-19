@@ -25,4 +25,9 @@ Side menus were included in order to favor declutered exhibitions of items and k
   <br></br>
 
 ## Main view and animated button to select type
-<img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/7b0e504d-454e-43dc-8fa0-5f1949cbd348" width="350" height="650" > | <img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/10737e33-94f9-4603-a349-1b57eacc9e06" width="350" height="650">
+<img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/7b0e504d-454e-43dc-8fa0-5f1949cbd348" width="400" height="650" > | <img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/10737e33-94f9-4603-a349-1b57eacc9e06" width="400" height="650">
+
+## Side menu filter and side menu profile
+
+<img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/229fe934-0ae3-4ea5-bd86-962ad652d1df" width="400" height="650"> | <img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/d63ff49a-663f-4cc0-8afb-69d8bf88fa9d" width="400" height="650">
+
