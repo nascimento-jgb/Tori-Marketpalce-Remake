@@ -1,4 +1,4 @@
-# Tori-Marketplace-Remake
+# Tori Marketplace Remake
 Remake of Tori.fi marketplace app for educational purposes. The ideas was to present a prototype of English UI to the application while introducing a minimal style.
 Side menus were included in order to favor declutered exhibitions of items and keep the search bar closer to the thumb neutral position, enhancing user experience.
 
