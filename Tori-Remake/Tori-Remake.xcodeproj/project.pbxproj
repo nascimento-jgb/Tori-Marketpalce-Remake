@@ -21,6 +21,8 @@
 		B93D64B12A89F8E600780ABD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D64B02A89F8E600780ABD /* UserProfile.swift */; };
 		B93D64B52A8A093100780ABD /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D64B42A8A093100780ABD /* UsersData.swift */; };
 		B93D64B72A8A292000780ABD /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D64B62A8A292000780ABD /* CoreDataManager.swift */; };
+		B93F39222AA4A27700314ED2 /* EmailTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F39212AA4A27700314ED2 /* EmailTextFieldView.swift */; };
+		B93F39242AA4A28C00314ED2 /* PasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F39232AA4A28C00314ED2 /* PasswordTextFieldView.swift */; };
 		B95620112A88CC39003C14C0 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620102A88CC39003C14C0 /* CategoriesView.swift */; };
 		B95620132A88D21B003C14C0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620122A88D21B003C14C0 /* Constants.swift */; };
 		B95620152A88D246003C14C0 /* AdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95620142A88D246003C14C0 /* AdCardView.swift */; };
@@ -53,6 +55,8 @@
 		B93D64B02A89F8E600780ABD /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		B93D64B42A8A093100780ABD /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
 		B93D64B62A8A292000780ABD /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B93F39212AA4A27700314ED2 /* EmailTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextFieldView.swift; sourceTree = "<group>"; };
+		B93F39232AA4A28C00314ED2 /* PasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldView.swift; sourceTree = "<group>"; };
 		B95620102A88CC39003C14C0 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		B95620122A88D21B003C14C0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B95620142A88D246003C14C0 /* AdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCardView.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 		B93F39202AA490EE00314ED2 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				B93F39212AA4A27700314ED2 /* EmailTextFieldView.swift */,
+				B93F39232AA4A28C00314ED2 /* PasswordTextFieldView.swift */,
 				B9164C9A2A8BBAD200FFDD33 /* ProductScrollView.swift */,
 				B95620142A88D246003C14C0 /* AdCardView.swift */,
 				B95620162A88ECEF003C14C0 /* AdInfoView.swift */,
@@ -286,6 +292,7 @@
 				B95620152A88D246003C14C0 /* AdCardView.swift in Sources */,
 				B98EC8B12A8F3B3D006DCF27 /* CustomFilterMenuBox.swift in Sources */,
 				B9164C9B2A8BBAD200FFDD33 /* ProductScrollView.swift in Sources */,
+				B93F39222AA4A27700314ED2 /* EmailTextFieldView.swift in Sources */,
 				B9E7AE292A87C7D2006F323E /* Tori_Remake.xcdatamodeld in Sources */,
 				B98EC8B32A8F3F49006DCF27 /* CustomFilterRangeBox.swift in Sources */,
 				B9164CA62A8DE13600FFDD33 /* CustomFont.swift in Sources */,
@@ -299,6 +306,7 @@
 				B93D64B52A8A093100780ABD /* UsersData.swift in Sources */,
 				B93D64B12A89F8E600780ABD /* UserProfile.swift in Sources */,
 				B93D64B72A8A292000780ABD /* CoreDataManager.swift in Sources */,
+				B93F39242AA4A28C00314ED2 /* PasswordTextFieldView.swift in Sources */,
 				B9164C9D2A8BD37300FFDD33 /* ProfileSideMenu.swift in Sources */,
 				B9164CA32A8CC4D300FFDD33 /* FiltersSideMenu.swift in Sources */,
 			);

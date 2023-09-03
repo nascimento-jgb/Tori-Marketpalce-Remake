@@ -42,6 +42,28 @@ class MainMenuViewModel: ObservableObject {
         users = fetchedUsers
     }
     
+    func isValidEmail(email: String) -> Bool {
+        
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+            
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+    }
+    
+    func loginUser(email: String, password: String) -> Bool {
+            if !email.isEmpty && !password.isEmpty {
+                if isValidEmail(email: email) {
+                    let userExists = CoreDataManager.shared.fetchUser(withEmail: email, password: password)
+                    if userExists {
+                        UserDefaults.standard.set(email, forKey: kEmail)
+                        UserDefaults.standard.set(password, forKey: kPassword)
+                        UserDefaults.standard.set(true, forKey: kIsLoggedIn)
+                        return true
+                    }
+                }
+            }
+            return false
+        }
+    
     func categorySelectionHeaderView(categoryStatus: Binding<String>) -> AnyView {
         if categoryStatus.wrappedValue != "" {
             return AnyView(

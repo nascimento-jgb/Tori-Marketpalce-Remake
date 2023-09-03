@@ -22,9 +22,6 @@ struct SignInView: View {
     @State var showAlert = false
     @State var isLoggedIn = false
     
-    @State private var isAlertPresented = false
-    @State private var alertMessage = ""
-    
     init(
         viewModel: MainMenuViewModel
     ){
@@ -48,42 +45,16 @@ struct SignInView: View {
                         .customFont(.body)
                     Divider()
                     
-                    VStack(alignment: .leading){
-                        Text("Email")
-                            .customFont(.subheadline)
-                            .foregroundColor(.gray)
-                        TextField("", text: $email, onEditingChanged: { _ in }, onCommit: {
-                                email = email.lowercased() // Convert entered email to lowercase
-                            })
-                            .customTextField(image: Image(systemName: "envelope"))
-                    }
-                    
-                    VStack(alignment: .leading){
-                        Text("Passowrd")
-                            .customFont(.subheadline)
-                            .foregroundColor(.gray)
-                        SecureField("", text: $password)
-                            .customTextField(image: Image(systemName: "lock"))
-                    }
+                    EmailTextFieldView(email: $email)
+                    PasswordTextFieldView(password: $password)
                     
                     Button {
-                        if !email.isEmpty && !password.isEmpty {
-                            if isValidEmail(email: email) {
-                                let userExists = CoreDataManager.shared.fetchUser(withEmail: email, password: password)
-                                if userExists {
-                                    UserDefaults.standard.set(email, forKey: kEmail)
-                                    UserDefaults.standard.set(password, forKey: kPassword)
-                                    UserDefaults.standard.set(true, forKey: kIsLoggedIn)
-                                    isLoggedIn = true
-                                } else {
-                                    showAlert = true
-                                }
+                        let loginSuccessful = viewModel.loginUser(email: email, password: password)
+                            if loginSuccessful {
+                                isLoggedIn = true
                             } else {
                                 showAlert = true
                             }
-                        } else {
-                            showAlert = true
-                        }
                     } label: {
                         Label("Sign In", systemImage: "arrow.right")
                             .customFont(.body)
@@ -93,15 +64,13 @@ struct SignInView: View {
                             .foregroundColor(.white)
                             .cornerRadius(20, corners: [.topRight, .bottomLeft, .bottomRight])
                             .cornerRadius(8, corners: [.topLeft])
-                        .shadow(color: Constants.Colors.primaryColor, radius: 20, x: 0, y: 10)}
-                    
+                            .shadow(color: Constants.Colors.primaryColor, radius: 20, x: 0, y: 10)}
                     
                     HStack{
                         Rectangle().frame(height: 1).opacity(0.1)
                         Text("OR").customFont(.subheadline).foregroundColor(.black).opacity(0.3)
                         Rectangle().frame(height: 1).opacity(0.1)
                     }
-                    
                     
                     Text("Sign up with Email, Apple or Google")
                         .customFont(.subheadline)
@@ -148,13 +117,6 @@ struct SignInView: View {
                     .navigationBarBackButtonHidden(true)
             }
         }
-    }
-    
-    func isValidEmail(email: String) -> Bool {
-        
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-            
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
     }
 }
 

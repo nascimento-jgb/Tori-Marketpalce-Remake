@@ -49,7 +49,7 @@ struct ProfileSideMenu: View {
                 }
             
             Text("BROWSE")
-                .customFont(.body)
+                .customFont(.body).fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 32)
                 .padding(.top, 25)
@@ -67,7 +67,7 @@ struct ProfileSideMenu: View {
             .padding(8)
             
             Text("PROFILE")
-                .customFont(.body)
+                .customFont(.body).fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 32)
                 .padding(.top, 25)

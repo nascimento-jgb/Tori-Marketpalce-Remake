@@ -16,13 +16,6 @@ struct MainMenuView: View {
     @State private var isProfileOpen = false
     @State private var isCategoryFiltersOpen = false
     
-    init(
-        viewModel: MainMenuViewModel
-        ) {
-        self.viewModel = viewModel
-        }
-    
-    
  var body: some View {
         
         ZStack {
@@ -96,7 +89,6 @@ struct MainMenuView: View {
                             )
                             .padding(.horizontal, 8)
                                 
-                            
                     Image(systemName: "person")
                             .foregroundColor(showMenu ? .black : Constants.Colors.primaryColor)
                             .padding(.trailing, 2)
@@ -137,15 +129,7 @@ struct MainMenuView_Previews: PreviewProvider {
         let context = CoreDataManager.shared.managedObjectContext
         let viewModel = MainMenuViewModel()
         
-        return MainMenuView(
-                            viewModel: viewModel
-//                            selectedFilter: .constant("Category"),
-//                            selectedTypeOfSale: .constant("Sale"),
-//                            minProductValue: .constant("0"),
-//                            maxProductValue: .constant("100"),
-//                            locationSearchBar: .constant("Location"),
-//                            categoryStatus: .constant("None")
-                            )
+        return MainMenuView(viewModel: viewModel)
             .environment(\.managedObjectContext, context)
             .environmentObject(viewModel)
     }
