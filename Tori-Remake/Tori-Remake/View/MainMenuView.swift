@@ -13,7 +13,6 @@ struct MainMenuView: View {
     @ObservedObject var viewModel: MainMenuViewModel
     
     @State private var showMenu = false
-    @State private var searchText = ""
     @State private var isProfileOpen = false
     @State private var isCategoryFiltersOpen = false
     
@@ -60,6 +59,9 @@ struct MainMenuView: View {
                     .onChange(of: viewModel.categoryStatus, perform: { value in
                         viewModel.updateProductCount(viewModel: viewModel)
                             })
+                    .onChange(of: viewModel.searchText , perform: { value in
+                        viewModel.updateProductCount(viewModel: viewModel)
+                            })
                     
                         
                     VStack {
@@ -83,7 +85,7 @@ struct MainMenuView: View {
                                 }
                             }
                             
-                    TextField("Search for an Item", text: $searchText)
+                        TextField("Search for an Item", text: $viewModel.searchText)
                             .customFont(.body)
                             .padding(.vertical, 12)
                             .padding(.leading, 8)
@@ -106,7 +108,6 @@ struct MainMenuView: View {
                         }
                         .padding()
                   
-                        
                         if showMenu {
                             CategoriesView(viewModel: viewModel)
                                 .padding(2)

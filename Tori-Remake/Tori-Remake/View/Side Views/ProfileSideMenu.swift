@@ -61,7 +61,7 @@ struct ProfileSideMenu: View {
                         .opacity(0.1)
                         .padding(.horizontal)
                         .foregroundColor(Constants.Colors.primaryColor).opacity(0.9)
-                    ProfileMenuRow(item: item, selectedMenu: $selectedMenu)
+                    ProfileSideMenuRow(item: item, selectedMenu: $selectedMenu)
                 }
             }
             .padding(8)
@@ -79,7 +79,7 @@ struct ProfileSideMenu: View {
                         .opacity(0.1)
                         .padding(.horizontal)
                         .foregroundColor(Constants.Colors.primaryColor).opacity(0.9)
-                    ProfileMenuRow(item: item, selectedMenu: $selectedMenu)
+                    ProfileSideMenuRow(item: item, selectedMenu: $selectedMenu)
                 }
             }
             .padding(8)

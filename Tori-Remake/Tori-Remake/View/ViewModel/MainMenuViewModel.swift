@@ -16,7 +16,6 @@ class MainMenuViewModel: ObservableObject {
     
     @Published var categoryStatus: String = ""
     @Published var searchText: String = ""
-
     @Published var selectedFilter: String = "Newest"
     @Published var selectedTypeOfSale: String = "For Sale"
     @Published var minProductValue: String = ""
@@ -24,7 +23,6 @@ class MainMenuViewModel: ObservableObject {
     @Published var locationSearchBar: String = ""
     @Published var displayedProductCount: Int = 0
     
-    private var cancellables: Set<AnyCancellable> = []
     private var hasFetchedData = false
     
     init() {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileMenuRow: View {
+struct ProfileSideMenuRow: View {
     
     var item: MenuItem
     @Binding var selectedMenu: SelectedMenuItem
@@ -39,8 +39,8 @@ struct ProfileMenuRow: View {
     }
 }
 
-struct ProfileMenuRow_Previews: PreviewProvider {
+struct ProfileSideMenuRow_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileMenuRow(item: menuItems[0], selectedMenu: .constant(.home))
+        ProfileSideMenuRow(item: menuItems[0], selectedMenu: .constant(.home))
     }
 }
