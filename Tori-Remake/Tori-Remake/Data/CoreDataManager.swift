@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataManager : ObservableObject {
+final class CoreDataManager : ObservableObject {
     static let shared = CoreDataManager()
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -93,25 +93,10 @@ class CoreDataManager : ObservableObject {
             
             coreUser.addToAddedFavorites(coreProduct)
             }
-                
             // Save the managed object context
             manager.saveContext()
         }
     }
-    
-//    func fetchUser(withID id: UUID) -> CoreUser? {
-//        let fetchRequest: NSFetchRequest<CoreUser> = CoreUser.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-//        fetchRequest.relationshipKeyPathsForPrefetching = ["addedProducts", "addedFavorites"]
-//
-//        do {
-//            let fetchedUsers = try managedObjectContext.fetch(fetchRequest)
-//            return fetchedUsers.first
-//        } catch {
-//            print("Error fetching user: \(error)")
-//            return nil
-//        }
-//    }
     
     func fetchUser(withEmail email: String, password: String) -> Bool {
         let fetchRequest: NSFetchRequest<CoreUser> = CoreUser.fetchRequest()

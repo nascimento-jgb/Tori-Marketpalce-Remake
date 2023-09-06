@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct FiltersSideMenu: View {
-    
     @ObservedObject var viewModel: MainMenuViewModel
-    
     @State private var showFilteredMenu = false
     @State private var showTypeOfSaleMenu = false
     

@@ -17,7 +17,7 @@ struct ProductsScrollView: View {
             Spacer()
             
             ForEach(viewModel.filteredProducts(viewModel: viewModel)) { product in
-                if let productOwner = viewModel.user(for: product, viewModel: viewModel) {
+                if let productOwner = viewModel.getUser(for: product, viewModel: viewModel) {
                         AdCardView(coreUser: productOwner, coreProduct: product)
                             .padding(1)
                             .onAppear(){

@@ -10,10 +10,8 @@ import SwiftUI
 struct AdInfoView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    
     @ObservedObject var coreUser: CoreUser
     @ObservedObject var coreProduct: CoreProduct
-    
     
     var body: some View {
         

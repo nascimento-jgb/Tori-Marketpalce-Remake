@@ -11,7 +11,6 @@ import CoreData
 struct MainMenuView: View {
     
     @ObservedObject var viewModel: MainMenuViewModel
-    
     @State private var showMenu = false
     @State private var isProfileOpen = false
     @State private var isCategoryFiltersOpen = false

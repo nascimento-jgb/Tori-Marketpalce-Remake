@@ -13,10 +13,9 @@ let kPassword: String = "password key"
 let kIsLoggedIn: String = "is logged in key"
 
 struct SignInView: View {
+    
     @Environment(\.managedObjectContext) private var viewContext
-    
     @ObservedObject var viewModel: MainMenuViewModel
-    
     @State var email = ""
     @State var password = ""
     @State var showAlert = false

@@ -9,7 +9,7 @@ import Foundation
 
 import Foundation
 
-class UserData : ObservableObject {
+final class UserData : ObservableObject {
     static let shared = UserData() // Singleton instance
     
     @Published var users: [User]
