@@ -1,14 +1,14 @@
 # Tori Marketplace Remake
-Remake of Tori.fi marketplace app for educational purposes. The ideas was to present a prototype of English UI to the application while introducing a minimal style.
-Side menus were included in order to favor declutered exhibitions of items and keep the search bar closer to the thumb neutral position, enhancing user experience.
+The remake of Tori.fi marketplace app for educational purposes. The idea was to present an English UI prototype to the application while introducing a minimal style.
+Side menus were included in order to favor decluttered exhibitions of items and keep the search bar closer to the thumb-neutral position, enhancing user experience.
 
 ## Key Learnings:
 
-- Sign in system and authentication
+- Sign-in system and authentication
 - MVVM (Model-View-ViewModel) 
 - Multiple and simultaneous filtering/sorting
 - Fetch data from Core Data
-- Aniamtions and 3D effects
+- Animations and 3D effects
 
 ## Technologies
 
@@ -23,11 +23,15 @@ Side menus were included in order to favor declutered exhibitions of items and k
   <br></br>
   Then build and run the project inside the Xcode environment to visualize the simulator.
   <br></br>
+  Use the following account for testing:
+  <br></br>
+  account: 1test@gmail.com password: test 
 
-## Main view and animated button to select type
-<img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/7b0e504d-454e-43dc-8fa0-5f1949cbd348" width="400" height="650" > | <img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/10737e33-94f9-4603-a349-1b57eacc9e06" width="400" height="650">
 
-## Side menu filter and side menu profile
+## Video preview
 
-<img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/229fe934-0ae3-4ea5-bd86-962ad652d1df" width="400" height="650"> | <img src="https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/d63ff49a-663f-4cc0-8afb-69d8bf88fa9d" width="400" height="650">
+
+https://github.com/nascimento-jgb/Tori-Marketplace-Remake/assets/97626192/fcbfc60d-b82b-43d1-9e2a-4c68cc1666a3
+
+
 
