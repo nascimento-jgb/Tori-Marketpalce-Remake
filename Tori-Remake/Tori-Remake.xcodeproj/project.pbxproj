@@ -30,6 +30,7 @@
 		B98EC8B12A8F3B3D006DCF27 /* CustomFilterMenuBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EC8B02A8F3B3D006DCF27 /* CustomFilterMenuBox.swift */; };
 		B98EC8B32A8F3F49006DCF27 /* CustomFilterRangeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EC8B22A8F3F48006DCF27 /* CustomFilterRangeBox.swift */; };
 		B98EC8B52A8F4263006DCF27 /* CustomFilterAditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EC8B42A8F4263006DCF27 /* CustomFilterAditional.swift */; };
+		B9B759F92AA8A48900E5C659 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B759F82AA8A48900E5C659 /* SearchBarView.swift */; };
 		B9E7AE1D2A87C7D1006F323E /* Tori_RemakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7AE1C2A87C7D1006F323E /* Tori_RemakeApp.swift */; };
 		B9E7AE212A87C7D2006F323E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E7AE202A87C7D2006F323E /* Assets.xcassets */; };
 		B9E7AE242A87C7D2006F323E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E7AE232A87C7D2006F323E /* Preview Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		B98EC8B02A8F3B3D006DCF27 /* CustomFilterMenuBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilterMenuBox.swift; sourceTree = "<group>"; };
 		B98EC8B22A8F3F48006DCF27 /* CustomFilterRangeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilterRangeBox.swift; sourceTree = "<group>"; };
 		B98EC8B42A8F4263006DCF27 /* CustomFilterAditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilterAditional.swift; sourceTree = "<group>"; };
+		B9B759F82AA8A48900E5C659 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		B9E7AE192A87C7D1006F323E /* Tori-Remake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tori-Remake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E7AE1C2A87C7D1006F323E /* Tori_RemakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tori_RemakeApp.swift; sourceTree = "<group>"; };
 		B9E7AE202A87C7D2006F323E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,8 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				B93D64B42A8A093100780ABD /* UsersData.swift */,
-				B93D64B62A8A292000780ABD /* CoreDataManager.swift */,
 				B9164CA02A8CA28B00FFDD33 /* ProfileMenuData.swift */,
+				B93D64B62A8A292000780ABD /* CoreDataManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -114,6 +116,7 @@
 				B95620142A88D246003C14C0 /* AdCardView.swift */,
 				B95620162A88ECEF003C14C0 /* AdInfoView.swift */,
 				B95620102A88CC39003C14C0 /* CategoriesView.swift */,
+				B9B759F82AA8A48900E5C659 /* SearchBarView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				B93D64AE2A89278100780ABD /* Category.swift in Sources */,
 				B9164CAC2A8E3EF600FFDD33 /* Extensions.swift in Sources */,
 				B9164C992A8AAFB300FFDD33 /* MainMenuViewModel.swift in Sources */,
+				B9B759F92AA8A48900E5C659 /* SearchBarView.swift in Sources */,
 				B9164CAA2A8E3C1700FFDD33 /* CustomTextField.swift in Sources */,
 				B93D64B52A8A093100780ABD /* UsersData.swift in Sources */,
 				B93D64B12A89F8E600780ABD /* UserProfile.swift in Sources */,
