@@ -17,7 +17,6 @@ struct EmailTextFieldView: View {
                 .foregroundColor(.gray)
             TextField("", text: $email, onEditingChanged: { _ in }, onCommit: {
                     email = email.lowercased()
-                    print("Email after converstion \(email)")
                 })
                 .customTextField(image: Image(systemName: "envelope"))
         }

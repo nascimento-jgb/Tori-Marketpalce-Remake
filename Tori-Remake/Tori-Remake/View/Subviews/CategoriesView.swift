@@ -21,7 +21,6 @@ struct CategoriesView: View {
                         VStack{
                             Button(action: {
                                 viewModel.categoryStatus = category.rawValue
-                                print(viewModel.categoryStatus)
                             }){
                                 Image(imageHolder)
                                     .resizable()
